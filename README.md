@@ -22,7 +22,8 @@ This platform is created , so as to make a huge library of already builded code 
 
     
 
-![FlutterSnips](https://github.com/dhruvpatidar359/Fluttersnips/assets/103873587/f3014e47-0e96-485b-97b2-52867968fec4)
+
+![FlutterSnips](https://github.com/dhruvpatidar359/Fluttersnips/assets/103873587/64ef0bdd-4a28-4d67-9b63-53f0bad5c58c)
 
 
 <!-------------Swags------------------------->
@@ -35,10 +36,8 @@ This platform is created , so as to make a huge library of already builded code 
 
 
  ## [LIVE LINK](fluttersnips.vercel.app) 
-    
-
-
-![image](https://github.com/dhruvpatidar359/Fluttersnips/assets/103873587/35b32805-7081-454d-b947-54170827debb)
+ 
+    ![Screenshot (456)](https://github.com/dhruvpatidar359/Fluttersnips/assets/103873587/e967d2ef-b522-4f29-b150-60cecec15ec3)
 
 
 ## 🛠️ Installation Steps + CONTRIBUTION
@@ -63,7 +62,9 @@ This platform is created , so as to make a huge library of already builded code 
 ```
 GOOGLE_SIGNIN_CLIENT_ID=
 ```
-![FlutterSnips  (1)](https://github.com/dhruvpatidar359/Fluttersnips/assets/103873587/be1d86c2-3a2b-48f7-96fc-fcf49258e7f1)
+![FlutterSnips  (1)](https://github.com/dhruvpatidar359/Fluttersnips/assets/103873587/f18f1e14-2e55-4cbf-a795-6a646203ba57)
+
+
 
 For getting  this you have to connect this app with your firebase flutter webapp :
  1.1) Run the following commands or visit(https://firebase.google.com/docs/flutter/setup?platform=web)
@@ -117,7 +118,7 @@ flutter run
 
 ## For Widget Code Contribution 
 
-![FlutterSnips  (2)](https://github.com/dhruvpatidar359/Fluttersnips/assets/103873587/c5f3494b-e041-4c39-b20b-46bfb742e0c9)
+![FlutterSnips  (2)](https://github.com/dhruvpatidar359/Fluttersnips/assets/103873587/a9b1566b-86d4-4cc8-b10a-71ce079c420f)
 
 
 ## Project Maintainers ❤️ 
