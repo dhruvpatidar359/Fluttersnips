@@ -34,7 +34,7 @@ This platform is created , so as to make a huge library of already builded code 
 </p>
 
 
- ## [LIVE LINK](https://drive.google.com/file/d/1H9a_El71DdYrG6oUFd0EyZGZ3fXcy3AU/view?usp=sharing) 
+ ## [LIVE LINK](fluttersnips.vercel.app) 
     
 
 
