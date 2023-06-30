@@ -37,7 +37,7 @@ This platform is created , so as to make a huge library of already builded code 
 
  ## [LIVE LINK](fluttersnips.vercel.app) 
  
-    ![Screenshot (456)](https://github.com/dhruvpatidar359/Fluttersnips/assets/103873587/e967d2ef-b522-4f29-b150-60cecec15ec3)
+![Screenshot (456)](https://github.com/dhruvpatidar359/Fluttersnips/assets/103873587/e967d2ef-b522-4f29-b150-60cecec15ec3)
 
 
 ## 🛠️ Installation Steps + CONTRIBUTION
