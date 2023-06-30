@@ -209,7 +209,7 @@ class _NavBarState extends State<NavBar> {
             Padding(
               padding: const EdgeInsets.fromLTRB(16.0, 8, 16, 8),
               child: Text(
-                'Dhruv Patidar',
+                'Login',
                 style: GoogleFonts.poppins(
                   fontSize: 16,
                   fontWeight: FontWeight.w400,

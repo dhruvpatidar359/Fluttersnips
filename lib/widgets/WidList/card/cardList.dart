@@ -823,6 +823,22 @@ class GlassyCard extends StatelessWidget {
 
 
 
+
+// OR WE CAN ALSO USE THIS SIMPLE CODE
+
+Container(
+width: MediaQuery.of(context).size.width,
+margin: const EdgeInsets.only(left: 20.0, right: 20.0),
+padding: EdgeInsets.all(28.0),
+decoration: new BoxDecoration(
+color:   const Color(0x36454F).withOpacity(0.5),// opacity
+border: new Border.all(color: Colors.white70,
+),
+borderRadius: BorderRadius.all(Radius.circular(40.0)),
+),
+child: Container(),
+),
+
 ''', 'card', GlassyCard(child: Container() ), 'Glassy')
 
 

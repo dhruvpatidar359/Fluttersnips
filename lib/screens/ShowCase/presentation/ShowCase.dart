@@ -11,6 +11,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:rive/rive.dart' show RiveAnimation;
 
 import '../../../Constants/AppColors.dart';
+import '../../../widgets/WidList/shapes/shapeList.dart';
 
 class Showcase extends StatefulWidget {
   const Showcase({Key? key}) : super(key: key);
@@ -23,6 +24,8 @@ class _ShowCaseState extends State<Showcase> {
   int selectedButtonIndex = -1;
   List<CardModel> fetchedData = [];
   List<CardModel> cardList = [];
+  List<CardModel> shapeList = [];
+  List<CardModel> animatedContainerList = [];
   List<CardModel> navBarList = [];
   List<CardModel> webViewList = [];
   // Add more lists for other button indexes
@@ -49,7 +52,12 @@ class _ShowCaseState extends State<Showcase> {
       "isSelected": false,
     },
     {
-      "title": "Appbar",
+      "title": "Shapes",
+      "icon": Icons.interests,
+      "isSelected": false,
+    },
+    {
+      "title": "NavBar",
       "icon": Icons.navigation,
       "isSelected": false,
     },
@@ -61,11 +69,6 @@ class _ShowCaseState extends State<Showcase> {
     {
       "title": "Column",
       "icon": Icons.view_column,
-      "isSelected": false,
-    },
-    {
-      "title": "Lines",
-      "icon": Icons.linear_scale_sharp,
       "isSelected": false,
     },
   ];
@@ -284,7 +287,19 @@ class _ShowCaseState extends State<Showcase> {
               : searchItems(cardList, searchQuery),
         );
         break;
+
       case 2:
+        if (shapeList.isEmpty) {
+          shapeList = shapeListW;
+        }
+
+        contentWidget = showCaseContent(
+          crossAxisCount: 2,
+          listW: shapeList,
+        );
+        break;
+
+      case 3:
         if (navBarList.isEmpty) {
           navBarList = [];
         }
@@ -296,10 +311,9 @@ class _ShowCaseState extends State<Showcase> {
               : searchItems(navBarList, searchQuery),
         );
         break;
-      
 
-      case 3:
-         if (webViewList.isEmpty) {
+      case 4:
+        if (webViewList.isEmpty) {
           webViewList = [];
         }
 
@@ -311,7 +325,7 @@ class _ShowCaseState extends State<Showcase> {
         );
         break;
 
-  // Add more cases for other button indexes
+      // Add more cases for other button indexes
 
       default:
         contentWidget = const Center(
