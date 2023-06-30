@@ -11,6 +11,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:rive/rive.dart' show RiveAnimation;
 
 import '../../../Constants/AppColors.dart';
+import '../../../widgets/WidList/shapes/shapeList.dart';
 
 class Showcase extends StatefulWidget {
   const Showcase({Key? key}) : super(key: key);
@@ -23,14 +24,14 @@ class _ShowCaseState extends State<Showcase> {
   int selectedButtonIndex = -1;
   List<CardModel> fetchedData = [];
   List<CardModel> cardList = [];
+  List<CardModel> shapeList = [];
   List<CardModel> animatedContainerList = [];
   // Add more lists for other button indexes
 
   String searchQuery = '';
 
   void _fetchDataFromFirestore() async {
-    List<CardModel> list =
-        await FirebaseRepository().fetchRecentsFromFirestore();
+    List<CardModel> list = await FirebaseRepository().fetchRecentsFromFirestore();
     setState(() {
       fetchedData = list;
     });
@@ -65,6 +66,11 @@ class _ShowCaseState extends State<Showcase> {
     {
       "title": "Lines",
       "icon": Icons.linear_scale_sharp,
+      "isSelected": false,
+    },
+    {
+      "title": "Shapes",
+      "icon": Icons.interests,
       "isSelected": false,
     },
   ];
@@ -155,7 +161,7 @@ class _ShowCaseState extends State<Showcase> {
                       child: GlassyCard(
                           child: Center(
                               child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
                             "How To Use",
@@ -178,7 +184,6 @@ class _ShowCaseState extends State<Showcase> {
                               fontWeight: FontWeight.w400,
                             ),
                           ),
-
                           Text(
                             "👉 Copy Code",
                             style: GoogleFonts.poppins(
@@ -186,7 +191,6 @@ class _ShowCaseState extends State<Showcase> {
                               fontWeight: FontWeight.w400,
                             ),
                           ),
-
                           Text(
                             "👉 Enjoy",
                             style: GoogleFonts.poppins(
@@ -197,18 +201,18 @@ class _ShowCaseState extends State<Showcase> {
                         ],
                       ))),
                     ),
-                     Padding(
-                       padding: const EdgeInsets.all(8.0),
-                       child: Row(
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                         children: [
-                           SizedBox(
+                        children: [
+                          SizedBox(
                             width: 300,
                             height: 400,
-                            child:GlassyCard(
+                            child: GlassyCard(
                                 child: Center(
                                     child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
                                   "How To Contribute",
@@ -231,7 +235,6 @@ class _ShowCaseState extends State<Showcase> {
                                     fontWeight: FontWeight.w400,
                                   ),
                                 ),
-                     
                                 Text(
                                   "👉 Fluttersnips ,Add Code",
                                   style: GoogleFonts.poppins(
@@ -239,7 +242,6 @@ class _ShowCaseState extends State<Showcase> {
                                     fontWeight: FontWeight.w400,
                                   ),
                                 ),
-                     
                                 Text(
                                   "👉 OR Go For Github",
                                   style: GoogleFonts.poppins(
@@ -249,10 +251,10 @@ class _ShowCaseState extends State<Showcase> {
                                 ),
                               ],
                             ))),
-                                         ),
-                         ],
-                       ),
-                     ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               )
@@ -267,10 +269,9 @@ class _ShowCaseState extends State<Showcase> {
             child: CircularProgressIndicator(),
           );
         } else {
-          contentWidget = showCaseContent(crossAxisCount: 2,
-            listW: searchQuery.isEmpty
-                ? fetchedData
-                : searchItems(fetchedData, searchQuery),
+          contentWidget = showCaseContent(
+            crossAxisCount: 2,
+            listW: searchQuery.isEmpty ? fetchedData : searchItems(fetchedData, searchQuery),
           );
         }
         break;
@@ -279,35 +280,35 @@ class _ShowCaseState extends State<Showcase> {
           cardList = cardListW;
         }
 
-        contentWidget = showCaseContent(crossAxisCount: 2,
-          listW: searchQuery.isEmpty
-              ? cardList
-              : searchItems(cardList, searchQuery),
+        contentWidget = showCaseContent(
+          crossAxisCount: 2,
+          listW: searchQuery.isEmpty ? cardList : searchItems(cardList, searchQuery),
         );
         break;
       case 2:
         if (animatedContainerList.isEmpty) {
-          animatedContainerList = [
-           
-            
-            
-          ];
+          animatedContainerList = [];
         }
 
-        contentWidget = showCaseContent(crossAxisCount: 1,
-          listW: searchQuery.isEmpty
-              ? animatedContainerList
-              : searchItems(animatedContainerList, searchQuery),
+        contentWidget = showCaseContent(
+          crossAxisCount: 1,
+          listW: searchQuery.isEmpty ? animatedContainerList : searchItems(animatedContainerList, searchQuery),
+        );
+        break;
+      case 6:
+        if (shapeList.isEmpty) {
+          shapeList = shapeListW;
+        }
+
+        contentWidget = showCaseContent(
+          crossAxisCount: 2,
+          listW: shapeList,
         );
         break;
       // Add more cases for other button indexes
 
       default:
-        contentWidget = const Center(
-            child: SizedBox(
-                height: 200,
-                width: 200,
-                child: RiveAnimation.asset('assets/empty.riv')));
+        contentWidget = const Center(child: SizedBox(height: 200, width: 200, child: RiveAnimation.asset('assets/empty.riv')));
     }
 
     return Column(
@@ -341,9 +342,7 @@ class _ShowCaseState extends State<Showcase> {
     return Container(
       width: MediaQuery.of(context).size.width / 4,
       height: MediaQuery.of(context).size.height,
-      decoration: const BoxDecoration(
-          gradient:
-              LinearGradient(colors: [Color(0xFF101010), Color(0xFF101010)])),
+      decoration: const BoxDecoration(gradient: LinearGradient(colors: [Color(0xFF101010), Color(0xFF101010)])),
       child: Row(
         children: [
           const SizedBox(
@@ -385,17 +384,13 @@ class _ShowCaseState extends State<Showcase> {
                   return ListTile(
                     leading: Icon(
                       items[index]['icon'],
-                      color: selectedButtonIndex == index
-                          ? primaryColor
-                          : Colors.white,
+                      color: selectedButtonIndex == index ? primaryColor : Colors.white,
                     ),
                     title: Text(items[index]['title'],
                         style: GoogleFonts.poppins(
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
-                          color: selectedButtonIndex == index
-                              ? primaryColor
-                              : Colors.white,
+                          color: selectedButtonIndex == index ? primaryColor : Colors.white,
                         )),
                     onTap: () {
                       setState(() {
