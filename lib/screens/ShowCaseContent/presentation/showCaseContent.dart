@@ -4,13 +4,15 @@ import 'package:flutter/services.dart';
 import 'package:fluttersnips/Constants/AppColors.dart';
 import 'package:fluttersnips/Models/cardModel.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:fluttersnips/widgets/NavBar/presentation/NavBar.dart';
+import 'package:selectable_code_view/selectable_code_view.dart';
 
 class showCaseContent extends StatefulWidget {
   final List<CardModel> listW;
   final int crossAxisCount;
 
-  const showCaseContent({Key? key, required this.listW, required this.crossAxisCount}) : super(key: key);
+  const showCaseContent(
+      {Key? key, required this.listW, required this.crossAxisCount})
+      : super(key: key);
 
   @override
   State<showCaseContent> createState() => _showCaseContentState();
@@ -33,7 +35,7 @@ class _showCaseContentState extends State<showCaseContent> {
       child: CustomScrollView(
         slivers: [
           SliverGrid(
-            gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: widget.crossAxisCount,
               mainAxisSpacing: 4,
               crossAxisSpacing: 4,
@@ -88,9 +90,19 @@ class _showCaseContentState extends State<showCaseContent> {
                                           fontWeight: FontWeight.w500),
                                     ),
                                     content: SingleChildScrollView(
-                                      child: Text(
-                                        getCodeForIndex(index),
-                                        style: TextStyle(fontSize: 14),
+                                      child: SelectableCodeView(
+                                        code:
+                                            getCodeForIndex(index), // Code text
+                                        language: Language.DART, // Language
+                                        languageTheme:
+                                            LanguageTheme.vscodeDark(), // Theme
+                                        fontSize: 14.0, // Font size
+                                        withZoom:
+                                            true, // Enable/Disable zoom icon controls
+                                        withLinesCount:
+                                            true, // Enable/Disable line number
+                                        expanded:
+                                            false, // Enable/Disable container expansion
                                       ),
                                     ),
                                     actions: [
