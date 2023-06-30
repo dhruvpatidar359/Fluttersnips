@@ -23,7 +23,8 @@ class _ShowCaseState extends State<Showcase> {
   int selectedButtonIndex = -1;
   List<CardModel> fetchedData = [];
   List<CardModel> cardList = [];
-  List<CardModel> animatedContainerList = [];
+  List<CardModel> navBarList = [];
+  List<CardModel> webViewList = [];
   // Add more lists for other button indexes
 
   String searchQuery = '';
@@ -48,13 +49,13 @@ class _ShowCaseState extends State<Showcase> {
       "isSelected": false,
     },
     {
-      "title": "Animated Container",
-      "icon": Icons.animation,
+      "title": "Appbar",
+      "icon": Icons.navigation,
       "isSelected": false,
     },
     {
-      "title": "Appbar",
-      "icon": Icons.rectangle,
+      "title": "WebView",
+      "icon": Icons.web,
       "isSelected": false,
     },
     {
@@ -155,7 +156,7 @@ class _ShowCaseState extends State<Showcase> {
                       child: GlassyCard(
                           child: Center(
                               child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
                             "How To Use",
@@ -178,7 +179,6 @@ class _ShowCaseState extends State<Showcase> {
                               fontWeight: FontWeight.w400,
                             ),
                           ),
-
                           Text(
                             "👉 Copy Code",
                             style: GoogleFonts.poppins(
@@ -186,7 +186,6 @@ class _ShowCaseState extends State<Showcase> {
                               fontWeight: FontWeight.w400,
                             ),
                           ),
-
                           Text(
                             "👉 Enjoy",
                             style: GoogleFonts.poppins(
@@ -197,18 +196,18 @@ class _ShowCaseState extends State<Showcase> {
                         ],
                       ))),
                     ),
-                     Padding(
-                       padding: const EdgeInsets.all(8.0),
-                       child: Row(
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                         children: [
-                           SizedBox(
+                        children: [
+                          SizedBox(
                             width: 300,
                             height: 400,
-                            child:GlassyCard(
+                            child: GlassyCard(
                                 child: Center(
                                     child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
                                   "How To Contribute",
@@ -231,7 +230,6 @@ class _ShowCaseState extends State<Showcase> {
                                     fontWeight: FontWeight.w400,
                                   ),
                                 ),
-                     
                                 Text(
                                   "👉 Fluttersnips ,Add Code",
                                   style: GoogleFonts.poppins(
@@ -239,7 +237,6 @@ class _ShowCaseState extends State<Showcase> {
                                     fontWeight: FontWeight.w400,
                                   ),
                                 ),
-                     
                                 Text(
                                   "👉 OR Go For Github",
                                   style: GoogleFonts.poppins(
@@ -249,10 +246,10 @@ class _ShowCaseState extends State<Showcase> {
                                 ),
                               ],
                             ))),
-                                         ),
-                         ],
-                       ),
-                     ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               )
@@ -267,7 +264,8 @@ class _ShowCaseState extends State<Showcase> {
             child: CircularProgressIndicator(),
           );
         } else {
-          contentWidget = showCaseContent(crossAxisCount: 2,
+          contentWidget = showCaseContent(
+            crossAxisCount: 2,
             listW: searchQuery.isEmpty
                 ? fetchedData
                 : searchItems(fetchedData, searchQuery),
@@ -279,28 +277,41 @@ class _ShowCaseState extends State<Showcase> {
           cardList = cardListW;
         }
 
-        contentWidget = showCaseContent(crossAxisCount: 2,
+        contentWidget = showCaseContent(
+          crossAxisCount: 2,
           listW: searchQuery.isEmpty
               ? cardList
               : searchItems(cardList, searchQuery),
         );
         break;
       case 2:
-        if (animatedContainerList.isEmpty) {
-          animatedContainerList = [
-           
-            
-            
-          ];
+        if (navBarList.isEmpty) {
+          navBarList = [];
         }
 
-        contentWidget = showCaseContent(crossAxisCount: 1,
+        contentWidget = showCaseContent(
+          crossAxisCount: 1,
           listW: searchQuery.isEmpty
-              ? animatedContainerList
-              : searchItems(animatedContainerList, searchQuery),
+              ? navBarList
+              : searchItems(navBarList, searchQuery),
         );
         break;
-      // Add more cases for other button indexes
+      
+
+      case 3:
+         if (webViewList.isEmpty) {
+          webViewList = [];
+        }
+
+        contentWidget = showCaseContent(
+          crossAxisCount: 1,
+          listW: searchQuery.isEmpty
+              ? webViewList
+              : searchItems(webViewList, searchQuery),
+        );
+        break;
+
+  // Add more cases for other button indexes
 
       default:
         contentWidget = const Center(
