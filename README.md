@@ -132,4 +132,10 @@ flutter run
   <a href="https://www.instagram.com/dhruvpatidar359/"><img src="https://img.shields.io/badge/instagram-%23D14836.svg?&style=for-the-badge&logo=instagram&logoColor=pink" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
 </p>
 
+## Contributors 💘
+
+<a href="https://github.com/dhruvpatidar359/Fluttersnips/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=dhruvpatidar359/Fluttersnips" />
+</a>
+
 
