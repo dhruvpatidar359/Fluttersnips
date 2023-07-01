@@ -1,6 +1,4 @@
-
 import 'package:flutter/material.dart';
-
 
 // Animated Card with animations
 class ModuleCard extends StatefulWidget {
@@ -16,120 +14,113 @@ class _ModuleCardState extends State<ModuleCard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-        body: Center(
-          child: MouseRegion(
-            onEnter: (event) {
-              setState(() {
-                isHovered = true;
-              });
-            },
-            onExit: ((event) {
-              setState(() {
-                isHovered = false;
-              });
-            }),
-            child: Stack(
-              clipBehavior: Clip.none,
-              children: [
-                AnimatedContainer(
-                  duration: const Duration(milliseconds: 375),
-                  curve: Curves.easeOut,
-                  height: isHovered ? 300.0 : 280.0,
-                  width: 250.0,
-                  decoration: BoxDecoration(
-                    color: Colors.brown[300],
-                    borderRadius: BorderRadius.circular(20.0),
-                  ),
+      body: Center(
+        child: MouseRegion(
+          onEnter: (event) {
+            setState(() {
+              isHovered = true;
+            });
+          },
+          onExit: ((event) {
+            setState(() {
+              isHovered = false;
+            });
+          }),
+          child: Stack(
+            clipBehavior: Clip.none,
+            children: [
+              AnimatedContainer(
+                duration: const Duration(milliseconds: 375),
+                curve: Curves.easeOut,
+                height: isHovered ? 300.0 : 280.0,
+                width: 250.0,
+                decoration: BoxDecoration(
+                  color: Colors.brown[300],
+                  borderRadius: BorderRadius.circular(20.0),
                 ),
-                AnimatedPositioned(
+              ),
+              AnimatedPositioned(
+                duration: const Duration(milliseconds: 375),
+                curve: Curves.easeOut,
+                top: isHovered ? -100.0 : 0.0,
+                child: AnimatedContainer(
                   duration: const Duration(milliseconds: 375),
                   curve: Curves.easeOut,
-                  top: isHovered ? -100.0 : 0.0,
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 375),
-                    curve: Curves.easeOut,
-                    height: isHovered ? 390.0 : 280.0,
-                    width: 250.0,
-                    child: Column(children: [
-                      Padding(
-                        padding: const EdgeInsets.all(15.0),
-                        child: AnimatedContainer(
-                            duration: const Duration(milliseconds: 375),
-                            curve: Curves.easeOut,
-                            height: isHovered ? 180.0 : 220.0,
-                            width: isHovered ? 180.0 : 220.0,
-                            child: Container(
-                              color: Colors.yellow,
-                            )),
-                      ),
-                      const Text(
-                        "Module One",
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                       const Expanded(
-                        child: Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: SingleChildScrollView(
-                            child: Column(
-                              children: [
-                                Text(
-                                  'This is the best module of the world and any body can contribute to this ',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w500,
-                                      color: Colors.white),
-                                ),
-                                SizedBox(
-                                  height: 30.0,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                   
-                                  ],
-                                )
-                              ],
-                            ),
+                  height: isHovered ? 390.0 : 280.0,
+                  width: 250.0,
+                  child: Column(children: [
+                    Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: AnimatedContainer(
+                          duration: const Duration(milliseconds: 375),
+                          curve: Curves.easeOut,
+                          height: isHovered ? 180.0 : 220.0,
+                          width: isHovered ? 180.0 : 220.0,
+                          child: Container(
+                            color: Colors.yellow,
+                          )),
+                    ),
+                    const Text(
+                      "Module One",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    const Expanded(
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              Text(
+                                'This is the best module of the world and any body can contribute to this ',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.white),
+                              ),
+                              SizedBox(
+                                height: 30.0,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [],
+                              )
+                            ],
                           ),
                         ),
                       ),
-                    ]),
-                  ),
+                    ),
+                  ]),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
-        );
+      ),
+    );
   }
 }
 
-
-
 // Tilt Widget
-
-
 
 class TiltWidget extends StatefulWidget {
   final double yaxis;
- 
+
   final String text;
   final String subText;
 
-  TiltWidget(
-      {required this.yaxis,
-   
+  const TiltWidget(
+      {super.key,
+      required this.yaxis,
       required this.text,
       required this.subText});
 
   @override
-  _TiltWidgetState createState() => _TiltWidgetState();
+  State<TiltWidget> createState() => _TiltWidgetState();
 }
 
 class _TiltWidgetState extends State<TiltWidget> {
@@ -147,129 +138,119 @@ class _TiltWidgetState extends State<TiltWidget> {
   Widget build(BuildContext context) {
     return TweenAnimationBuilder(
       curve: Curves.easeOut,
-      duration: Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 300),
       tween: Tween(
         begin: beginX,
         end: endX,
       ),
       builder: (context, valueX, child) => TweenAnimationBuilder(
         curve: Curves.easeOut,
-        duration: Duration(milliseconds: 300),
+        duration: const Duration(milliseconds: 300),
         tween: Tween(
           begin: beginY,
           end: endY,
         ),
         builder: (context, valueY, child) {
-          return Stack(
-            children: [
-              Transform(
-                transform: Matrix4.identity()
-                  ..setEntry(3, 2, 0.001)
-                  ..rotateX(valueX)
-                  ..rotateY(valueY),
-                alignment: FractionalOffset.center,
-                child: MouseRegion(
-                  onHover: (details) {
-                    double yvalue = widget.yaxis - details.localPosition.dx;
-                    double xvalue = (MediaQuery.of(context).size.height / 2) -
-                        details.localPosition.dy;
-          
-                    if (yvalue <= borderValueY && yvalue >= -borderValueY) {
-                      setState(() {
-                        double oldRange = (borderValueY - (-borderValueY));
-                        double newRange = (0.35 - (-0.35));
-                        double newValue =
-                            (((yvalue - (-borderValueY)) * newRange) /
-                                    oldRange) +
-                                (-0.35);
-                        beginY = y;
-                        y = newValue;
-                        endY = y;
-                        oldRange = (borderValueX - (-borderValueX));
-                        newRange = (0.35 - (-0.35));
-                        newValue = (((-xvalue - (-borderValueX)) * newRange) /
-                                oldRange) +
+          return Transform(
+            transform: Matrix4.identity()
+              ..setEntry(3, 2, 0.001)
+              ..rotateX(valueX)
+              ..rotateY(valueY),
+            alignment: FractionalOffset.center,
+            child: MouseRegion(
+              onHover: (details) {
+                double yvalue = widget.yaxis - details.localPosition.dx;
+                double xvalue = (MediaQuery.of(context).size.height / 2) -
+                    details.localPosition.dy;
+
+                if (yvalue <= borderValueY && yvalue >= -borderValueY) {
+                  setState(() {
+                    double oldRange = (borderValueY - (-borderValueY));
+                    double newRange = (0.35 - (-0.35));
+                    double newValue =
+                        (((yvalue - (-borderValueY)) * newRange) / oldRange) +
                             (-0.35);
-                        beginX = x;
-                        x = newValue;
-                        endX = x;
-                      });
-                    }
-                  },
-                  onExit: (event) {
-                  
-                    setState(() {
-                      y = 0.0;
-                      x = 0.0;
-                      beginY = 0.0;
-                      endY = 0.0;
-                      beginX = 0.0;
-                      endX = 0.0;
-                    });
-                  },
-                  child: Stack(
-                    children: [
-
-                      Container(
-                        height: 400,
-                        width:  600,
-                        color: Colors.amber,
-                      ),
-                      Positioned(
-                        top: 20.0,
-                        right: 20.0,
-                        child: Transform(
-                          transform: Matrix4.identity()
-                            ..setEntry(3, 2, 0.001)
-                            ..translate(0.0, 0.0, -20.0),
-
-                        ),
-                      ),
-                      Positioned(
-                        bottom: 20.0,
-                        left: 20.0,
-                        child: Transform(
-                          transform: Matrix4.identity()
-                            ..setEntry(3, 2, 0.001)
-                            ..translate(0.0, 0.0, -30.0),
-                          alignment: FractionalOffset.center,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                    beginY = y;
+                    y = newValue;
+                    endY = y;
+                    oldRange = (borderValueX - (-borderValueX));
+                    newRange = (0.35 - (-0.35));
+                    newValue =
+                        (((-xvalue - (-borderValueX)) * newRange) / oldRange) +
+                            (-0.35);
+                    beginX = x;
+                    x = newValue;
+                    endX = x;
+                  });
+                }
+              },
+              onExit: (event) {
+                setState(() {
+                  y = 0.0;
+                  x = 0.0;
+                  beginY = 0.0;
+                  endY = 0.0;
+                  beginX = 0.0;
+                  endX = 0.0;
+                });
+              },
+              child: Stack(
+                children: [
+                  Container(
+                    height: 600,
+                    width: 600,
+                    color: Colors.amber,
+                  ),
+                  Positioned(
+                    top: 20.0,
+                    right: 20.0,
+                    child: Transform(
+                      transform: Matrix4.identity()
+                        ..setEntry(3, 2, 0.001)
+                        ..translate(0.0, 0.0, -20.0),
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 20.0,
+                    left: 20.0,
+                    child: Transform(
+                      transform: Matrix4.identity()
+                        ..setEntry(3, 2, 0.001)
+                        ..translate(0.0, 0.0, -30.0),
+                      alignment: FractionalOffset.center,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            widget.text,
+                            style: TextStyle(
+                              fontSize: 23.0,
+                              fontWeight: FontWeight.w700,
+                              color: textColor,
+                            ),
+                          ),
+                          Row(
                             children: [
+                              const SizedBox(
+                                width: 3.0,
+                              ),
                               Text(
-                                widget.text,
+                                widget.subText,
                                 style: TextStyle(
-                                  fontSize: 23.0,
-                                  fontWeight: FontWeight.w700,
+                                  fontSize: 13.0,
+                                  fontWeight: FontWeight.w300,
                                   color: textColor,
                                 ),
                               ),
-                              Row(
-                                children: [
-
-                                  SizedBox(
-                                    width: 3.0,
-                                  ),
-                                  Text(
-                                    widget.subText,
-                                    style: TextStyle(
-                                      fontSize: 13.0,
-                                      fontWeight: FontWeight.w300,
-                                      color: textColor,
-                                    ),
-                                  ),
-                                ],
-                              ),
-
                             ],
                           ),
-                        ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
-                ),
+                ],
               ),
-            ],
+            ),
           );
         },
       ),
@@ -277,13 +258,11 @@ class _TiltWidgetState extends State<TiltWidget> {
   }
 }
 
-
-
-
-
 class ScaleAnimationCard extends StatefulWidget {
+  const ScaleAnimationCard({super.key});
+
   @override
-  _ScaleAnimationCardState createState() => _ScaleAnimationCardState();
+  State<ScaleAnimationCard> createState() => _ScaleAnimationCardState();
 }
 
 class _ScaleAnimationCardState extends State<ScaleAnimationCard>
@@ -296,7 +275,7 @@ class _ScaleAnimationCardState extends State<ScaleAnimationCard>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 800),
+      duration: const Duration(milliseconds: 800),
     );
     _animation = CurvedAnimation(parent: _controller, curve: Curves.easeInOut)
       ..addListener(() {
@@ -325,7 +304,7 @@ class _ScaleAnimationCardState extends State<ScaleAnimationCard>
           width: 300,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            gradient: LinearGradient(
+            gradient: const LinearGradient(
               colors: [
                 Colors.blue,
                 Colors.lightBlue,
@@ -334,7 +313,7 @@ class _ScaleAnimationCardState extends State<ScaleAnimationCard>
               end: Alignment.bottomCenter,
             ),
           ),
-          child: Center(
+          child: const Center(
             child: Text(
               'Scale Animation Card',
               style: TextStyle(
@@ -349,12 +328,9 @@ class _ScaleAnimationCardState extends State<ScaleAnimationCard>
   }
 }
 
-
-
-
-
-
 class FloatingAnimationCard extends StatefulWidget {
+  const FloatingAnimationCard({super.key});
+
   @override
   _FloatingAnimationCardState createState() => _FloatingAnimationCardState();
 }
@@ -369,7 +345,7 @@ class _FloatingAnimationCardState extends State<FloatingAnimationCard>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 1500),
+      duration: const Duration(milliseconds: 1500),
     );
     _animation = CurvedAnimation(parent: _controller, curve: Curves.easeInOut)
       ..addListener(() {
@@ -397,7 +373,7 @@ class _FloatingAnimationCardState extends State<FloatingAnimationCard>
           width: 300,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            gradient: LinearGradient(
+            gradient: const LinearGradient(
               colors: [
                 Colors.pink,
                 Colors.deepPurple,
@@ -406,7 +382,7 @@ class _FloatingAnimationCardState extends State<FloatingAnimationCard>
               end: Alignment.bottomCenter,
             ),
           ),
-          child: Center(
+          child: const Center(
             child: Text(
               'Floating Animation Card',
               style: TextStyle(
@@ -421,12 +397,9 @@ class _FloatingAnimationCardState extends State<FloatingAnimationCard>
   }
 }
 
-
-
-
-
-
 class FlipAnimationCard extends StatefulWidget {
+  const FlipAnimationCard({super.key});
+
   @override
   _FlipAnimationCardState createState() => _FlipAnimationCardState();
 }
@@ -441,7 +414,7 @@ class _FlipAnimationCardState extends State<FlipAnimationCard>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 800),
+      duration: const Duration(milliseconds: 800),
     );
     _animation = CurvedAnimation(parent: _controller, curve: Curves.easeInOut);
     _controller.repeat(reverse: true);
@@ -478,7 +451,7 @@ class _FlipAnimationCardState extends State<FlipAnimationCard>
               width: 300,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                gradient: LinearGradient(
+                gradient: const LinearGradient(
                   colors: [
                     Colors.purple,
                     Colors.deepPurple,
@@ -494,7 +467,7 @@ class _FlipAnimationCardState extends State<FlipAnimationCard>
                 alignment: Alignment.center,
                 child: Container(
                   alignment: Alignment.center,
-                  child: Text(
+                  child: const Text(
                     'Flip Animation Card',
                     style: TextStyle(
                       fontSize: 20,
@@ -511,16 +484,9 @@ class _FlipAnimationCardState extends State<FlipAnimationCard>
   }
 }
 
-
-
-
-
-
-
-
-
-
 class RadialAnimationCard extends StatefulWidget {
+  const RadialAnimationCard({super.key});
+
   @override
   _RadialAnimationCardState createState() => _RadialAnimationCardState();
 }
@@ -535,7 +501,7 @@ class _RadialAnimationCardState extends State<RadialAnimationCard>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 2),
+      duration: const Duration(seconds: 2),
     );
     _animation = CurvedAnimation(parent: _controller, curve: Curves.easeInOut)
       ..addListener(() {
@@ -565,7 +531,7 @@ class _RadialAnimationCardState extends State<RadialAnimationCard>
           radius: _animation.value * 2,
         ),
       ),
-      child: Center(
+      child: const Center(
         child: Text(
           'Radial Animation Card',
           style: TextStyle(
@@ -578,10 +544,9 @@ class _RadialAnimationCardState extends State<RadialAnimationCard>
   }
 }
 
-
-
-
 class AnimatedContainerCard extends StatefulWidget {
+  const AnimatedContainerCard({super.key});
+
   @override
   _AnimatedContainerCardState createState() => _AnimatedContainerCardState();
 }
@@ -606,9 +571,9 @@ class _AnimatedContainerCardState extends State<AnimatedContainerCard> {
           color: Colors.blue,
           borderRadius: BorderRadius.circular(_isExpanded ? 20 : 10),
         ),
-        duration: Duration(milliseconds: 500),
+        duration: const Duration(milliseconds: 500),
         curve: Curves.easeInOut,
-        child: Center(
+        child: const Center(
           child: Text(
             'Animated Container Card',
             style: TextStyle(
@@ -622,8 +587,9 @@ class _AnimatedContainerCardState extends State<AnimatedContainerCard> {
   }
 }
 
-
 class AnimatedPositionedCard extends StatefulWidget {
+  const AnimatedPositionedCard({super.key});
+
   @override
   _AnimatedPositionedCardState createState() => _AnimatedPositionedCardState();
 }
@@ -649,7 +615,7 @@ class _AnimatedPositionedCardState extends State<AnimatedPositionedCard> {
             color: Colors.blue,
           ),
           AnimatedPositioned(
-            duration: Duration(milliseconds: 500),
+            duration: const Duration(milliseconds: 500),
             curve: Curves.easeInOut,
             top: _isExpanded ? 50 : 0,
             left: _isExpanded ? 50 : 0,
@@ -657,7 +623,7 @@ class _AnimatedPositionedCardState extends State<AnimatedPositionedCard> {
               height: _isExpanded ? 200 : 100,
               width: _isExpanded ? 200 : 100,
               color: Colors.red,
-              child: Center(
+              child: const Center(
                 child: Text(
                   'Animated Positioned Card',
                   style: TextStyle(
@@ -674,11 +640,12 @@ class _AnimatedPositionedCardState extends State<AnimatedPositionedCard> {
   }
 }
 
-
 class ShadowCard extends StatelessWidget {
+  const ShadowCard({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 200,
       width: 300,
       child: Card(
@@ -692,11 +659,11 @@ class ShadowCard extends StatelessWidget {
                 color: Colors.yellow.withOpacity(0.5),
                 spreadRadius: 2,
                 blurRadius: 5,
-                offset: Offset(0, 3),
+                offset: const Offset(0, 3),
               ),
             ],
           ),
-          child: Center(
+          child: const Center(
             child: Text(
               'Shadow Card',
               style: TextStyle(fontSize: 20),
@@ -708,14 +675,15 @@ class ShadowCard extends StatelessWidget {
   }
 }
 
-
-
 class AnimatedCard extends StatefulWidget {
+  const AnimatedCard({super.key});
+
   @override
   _AnimatedCardState createState() => _AnimatedCardState();
 }
 
-class _AnimatedCardState extends State<AnimatedCard> with SingleTickerProviderStateMixin {
+class _AnimatedCardState extends State<AnimatedCard>
+    with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<double> _animation;
 
@@ -723,10 +691,11 @@ class _AnimatedCardState extends State<AnimatedCard> with SingleTickerProviderSt
   void initState() {
     super.initState();
     _animationController = AnimationController(
-      duration: Duration(seconds: 1),
+      duration: const Duration(seconds: 1),
       vsync: this,
     )..repeat(reverse: true);
-    _animation = Tween<double>(begin: 0.0, end: 1.0).animate(_animationController);
+    _animation =
+        Tween<double>(begin: 0.0, end: 1.0).animate(_animationController);
   }
 
   @override
@@ -737,7 +706,7 @@ class _AnimatedCardState extends State<AnimatedCard> with SingleTickerProviderSt
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 200,
       width: 300,
       child: Card(
@@ -749,22 +718,19 @@ class _AnimatedCardState extends State<AnimatedCard> with SingleTickerProviderSt
               child: child,
             );
           },
-          child: FlutterLogo(size: 100),
+          child: const FlutterLogo(size: 100),
         ),
       ),
     );
   }
 }
 
-
-
-
-
-
 class GradientCard extends StatelessWidget {
+  const GradientCard({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 200,
       width: 300,
       child: Card(
@@ -773,13 +739,13 @@ class GradientCard extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            gradient: LinearGradient(
+            gradient: const LinearGradient(
               colors: [Colors.blue, Colors.purple],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
           ),
-          child: Center(
+          child: const Center(
             child: Text(
               'Gradient Card',
               style: TextStyle(fontSize: 20, color: Colors.white),
@@ -791,13 +757,15 @@ class GradientCard extends StatelessWidget {
   }
 }
 
-
 class FlipCard extends StatefulWidget {
+  const FlipCard({super.key});
+
   @override
   _FlipCardState createState() => _FlipCardState();
 }
 
-class _FlipCardState extends State<FlipCard> with SingleTickerProviderStateMixin {
+class _FlipCardState extends State<FlipCard>
+    with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<double> _animation;
 
@@ -807,10 +775,11 @@ class _FlipCardState extends State<FlipCard> with SingleTickerProviderStateMixin
   void initState() {
     super.initState();
     _animationController = AnimationController(
-      duration: Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
       vsync: this,
     );
-    _animation = Tween<double>(begin: 0.0, end: 1.0).animate(_animationController);
+    _animation =
+        Tween<double>(begin: 0.0, end: 1.0).animate(_animationController);
   }
 
   @override
@@ -832,7 +801,7 @@ class _FlipCardState extends State<FlipCard> with SingleTickerProviderStateMixin
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: _flipCard,
-      child: Container(
+      child: SizedBox(
         height: 200,
         width: 300,
         child: AnimatedBuilder(
@@ -849,8 +818,10 @@ class _FlipCardState extends State<FlipCard> with SingleTickerProviderStateMixin
           },
           child: Card(
             child: _isFront
-                ? Center(child: Text('Front', style: TextStyle(fontSize: 20)))
-                : Center(child: Text('Back', style: TextStyle(fontSize: 20))),
+                ? const Center(
+                    child: Text('Front', style: TextStyle(fontSize: 20)))
+                : const Center(
+                    child: Text('Back', style: TextStyle(fontSize: 20))),
           ),
         ),
       ),
@@ -858,15 +829,14 @@ class _FlipCardState extends State<FlipCard> with SingleTickerProviderStateMixin
   }
 }
 
+class StackedCard extends StatelessWidget {
+  const StackedCard({super.key});
 
-
-
-  class StackedCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return const Stack(
       children: [
-        Container(
+        SizedBox(
           height: 200,
           width: 300,
           child: Card(
@@ -881,7 +851,7 @@ class _FlipCardState extends State<FlipCard> with SingleTickerProviderStateMixin
         Positioned(
           top: 50,
           left: 50,
-          child: Container(
+          child: SizedBox(
             height: 100,
             width: 200,
             child: Card(
@@ -903,9 +873,11 @@ class _FlipCardState extends State<FlipCard> with SingleTickerProviderStateMixin
 class ListCard extends StatelessWidget {
   final List<String> items = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5'];
 
+  ListCard({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 200,
       width: 300,
       child: Card(
@@ -921,13 +893,3 @@ class ListCard extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-

@@ -4,8 +4,8 @@ class CardModel {
   final String email;
   final String code;
   final String classT;
-  final Widget? wid;
+  final Widget? widget;
   final String title;
 
-  CardModel(this.email, this.code, this.classT, this.wid, this.title);
+  CardModel(this.email, this.code, this.classT, this.widget, this.title);
 }

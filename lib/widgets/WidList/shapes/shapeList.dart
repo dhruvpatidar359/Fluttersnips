@@ -1,8 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:fluttersnips/widgets/WidList/shapes/shapeWidList.dart';
 
 import '../../../Models/cardModel.dart';
-import '../card/cardWidList.dart';
 
 List<CardModel> shapeListW = [
   CardModel(

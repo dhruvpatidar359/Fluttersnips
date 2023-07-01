@@ -1,13 +1,11 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:fluttersnips/Models/cardModel.dart';
 import 'package:fluttersnips/screens/ShowCaseContent/presentation/showCaseContent.dart';
 import 'package:fluttersnips/services/Datafetch/firebaseRepository.dart';
+import 'package:fluttersnips/shared/exports.dart';
 import 'package:fluttersnips/widgets/NavBar/presentation/NavBar.dart';
 import 'package:fluttersnips/widgets/WidList/card/cardList.dart';
 import 'package:glassy/glassy_card.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:rive/rive.dart' show RiveAnimation;
 
 import '../../../Constants/AppColors.dart';
@@ -28,9 +26,8 @@ class _ShowCaseState extends State<Showcase> {
   List<CardModel> animatedContainerList = [];
   List<CardModel> navBarList = [];
   List<CardModel> webViewList = [];
-  // Add more lists for other button indexes
 
-  String searchQuery = '';
+  late String searchQuery;
 
   void _fetchDataFromFirestore() async {
     List<CardModel> list =
@@ -47,7 +44,7 @@ class _ShowCaseState extends State<Showcase> {
       "isSelected": false,
     },
     {
-      "title": "Card",
+      "title": "Cards",
       "icon": Icons.credit_card,
       "isSelected": false,
     },
@@ -57,7 +54,7 @@ class _ShowCaseState extends State<Showcase> {
       "isSelected": false,
     },
     {
-      "title": "NavBar",
+      "title": "Navigation",
       "icon": Icons.navigation,
       "isSelected": false,
     },
@@ -75,52 +72,48 @@ class _ShowCaseState extends State<Showcase> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: home(),
-    );
+    searchQuery = context.watch<SearchProvider>().query;
+    return Scaffold(body: home());
   }
 
   Widget showText() {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Container(
-        height: 200,
-        width: 400,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Flexible(
-              child: Text(
-                'Code for faster development',
-                style: GoogleFonts.poppins(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
+    return SizedBox(
+      height: 200,
+      width: 400,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Flexible(
+            child: Text(
+              'Code for faster development',
+              style: GoogleFonts.poppins(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
               ),
             ),
-            Flexible(
-              child: Text(
-                'Flutter Snips.',
-                style: GoogleFonts.alfaSlabOne(
-                  color: Colors.white,
-                  fontSize: 48,
-                  fontWeight: FontWeight.w400,
-                ),
+          ),
+          Flexible(
+            child: Text(
+              'Flutter Snips.',
+              style: GoogleFonts.alfaSlabOne(
+                color: Colors.white,
+                fontSize: 48,
+                fontWeight: FontWeight.w400,
               ),
             ),
-            Flexible(
-              child: Text(
-                'By Dhruv Patidar',
-                style: GoogleFonts.poppins(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
+          ),
+          Flexible(
+            child: Text(
+              'By Dhruv Patidar',
+              style: GoogleFonts.poppins(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -133,21 +126,22 @@ class _ShowCaseState extends State<Showcase> {
         contentWidget = SingleChildScrollView(
           child: Column(
             children: [
-              Row(
-                children: [
-                  showText(),
-                  Container(
-                    height: 400,
-                    width: 400,
-                    child: const RiveAnimation.asset(
-                      "assets/birb.riv",
+              Padding(
+                padding: const EdgeInsets.fromLTRB(40, 110, 40, 30),
+                child: Row(
+                  children: [
+                    showText(),
+                    const SizedBox(
+                      height: 400,
+                      width: 400,
+                      child: RiveAnimation.asset(
+                        "assets/birb.riv",
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-              SizedBox(
-                height: 30,
-              ),
+              const SizedBox(height: 30),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
@@ -199,59 +193,51 @@ class _ShowCaseState extends State<Showcase> {
                         ],
                       ))),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    SizedBox(
+                      width: 300,
+                      height: 400,
+                      child: GlassyCard(
+                          child: Center(
+                              child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          SizedBox(
-                            width: 300,
-                            height: 400,
-                            child: GlassyCard(
-                                child: Center(
-                                    child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  "How To Contribute",
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 25,
-                                    fontWeight: FontWeight.w900,
-                                  ),
-                                ),
-                                Text(
-                                  "👉 Click on Contribute Button",
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                                Text(
-                                  "👉 Select Way to Contribute",
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                                Text(
-                                  "👉 Fluttersnips ,Add Code",
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                                Text(
-                                  "👉 OR Go For Github",
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ],
-                            ))),
+                          Text(
+                            "How To Contribute",
+                            style: GoogleFonts.poppins(
+                              fontSize: 25,
+                              fontWeight: FontWeight.w900,
+                            ),
+                          ),
+                          Text(
+                            "👉 Click on Contribute Button",
+                            style: GoogleFonts.poppins(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                          Text(
+                            "👉 Select Way to Contribute",
+                            style: GoogleFonts.poppins(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                          Text(
+                            "👉 Fluttersnips ,Add Code",
+                            style: GoogleFonts.poppins(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                          Text(
+                            "👉 OR Go For Github",
+                            style: GoogleFonts.poppins(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                            ),
                           ),
                         ],
-                      ),
+                      ))),
                     ),
                   ],
                 ),
@@ -260,6 +246,8 @@ class _ShowCaseState extends State<Showcase> {
           ),
         );
         break;
+
+      // Recently Added
       case 0:
         if (fetchedData.isEmpty) {
           _fetchDataFromFirestore();
@@ -267,59 +255,64 @@ class _ShowCaseState extends State<Showcase> {
             child: CircularProgressIndicator(),
           );
         } else {
-          contentWidget = showCaseContent(
+          contentWidget = ShowCaseContent(
             crossAxisCount: 2,
-            listW: searchQuery.isEmpty
+            data: searchQuery.isEmpty
                 ? fetchedData
                 : searchItems(fetchedData, searchQuery),
           );
         }
         break;
+
+      // Cards
       case 1:
         if (cardList.isEmpty) {
           cardList = cardListW;
         }
 
-        contentWidget = showCaseContent(
+        contentWidget = ShowCaseContent(
           crossAxisCount: 2,
-          listW: searchQuery.isEmpty
+          data: searchQuery.isEmpty
               ? cardList
               : searchItems(cardList, searchQuery),
         );
         break;
 
+      // Shapes
       case 2:
         if (shapeList.isEmpty) {
           shapeList = shapeListW;
         }
 
-        contentWidget = showCaseContent(
+        contentWidget = ShowCaseContent(
           crossAxisCount: 2,
-          listW: shapeList,
+          data: shapeList,
         );
         break;
 
+      // Navigation
       case 3:
         if (navBarList.isEmpty) {
           navBarList = [];
         }
 
-        contentWidget = showCaseContent(
+        contentWidget = ShowCaseContent(
           crossAxisCount: 1,
-          listW: searchQuery.isEmpty
+          data: searchQuery.isEmpty
               ? navBarList
               : searchItems(navBarList, searchQuery),
         );
         break;
 
+      // Webview
       case 4:
         if (webViewList.isEmpty) {
           webViewList = [];
         }
 
-        contentWidget = showCaseContent(
+        contentWidget = ShowCaseContent(
           crossAxisCount: 1,
-          listW: searchQuery.isEmpty
+          data: searchQuery.isEmpty
               ? webViewList
               : searchItems(webViewList, searchQuery),
         );
@@ -329,34 +322,20 @@ class _ShowCaseState extends State<Showcase> {
 
       default:
         contentWidget = const Center(
-            child: SizedBox(
-                height: 200,
-                width: 200,
-                child: RiveAnimation.asset('assets/empty.riv')));
+          child: SizedBox(
+            height: 200,
+            width: 200,
+            child: RiveAnimation.asset('assets/empty.riv'),
+          ),
+        );
     }
 
-    return Column(
+    return Row(
       children: [
+        Expanded(child: sideBar()),
         Expanded(
-          child: Row(
-            children: [
-              sideBar(),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    NavBar(
-                      onSearch: intermediateSearch,
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Expanded(child: contentWidget),
-                  ],
-                ),
-              ),
-            ],
-          ),
+          flex: 4,
+          child: Stack(children: [contentWidget, const NavBar()]),
         ),
       ],
     );
@@ -364,86 +343,54 @@ class _ShowCaseState extends State<Showcase> {
 
   Widget sideBar() {
     return Container(
-      width: MediaQuery.of(context).size.width / 4,
-      height: MediaQuery.of(context).size.height,
-      decoration: const BoxDecoration(
-          gradient:
-              LinearGradient(colors: [Color(0xFF101010), Color(0xFF101010)])),
-      child: Row(
+      color: const Color(0xFF101010),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(
-            width: 15,
-          ),
-          Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            const SizedBox(
-              height: 20,
-            ),
-            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              Text("Flutter Snips.",
-                  style: GoogleFonts.poppins(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700,
-                  )),
-              IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.copy_rounded,
-                    color: primaryColor,
-                  )),
-            ]),
-            const SizedBox(
-              height: 20,
-            ),
-            Text("Widgets",
-                style: GoogleFonts.poppins(
-                  fontSize: 15,
-                  fontWeight: FontWeight.w700,
-                )),
-            SizedBox(
-              height: MediaQuery.of(context).size.height / 2,
-              width: MediaQuery.of(context).size.width / 6,
-              child: ListView.builder(
-                scrollDirection: Axis.vertical,
-                shrinkWrap: true,
-                itemCount: items.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    leading: Icon(
-                      items[index]['icon'],
-                      color: selectedButtonIndex == index
-                          ? primaryColor
-                          : Colors.white,
-                    ),
-                    title: Text(items[index]['title'],
-                        style: GoogleFonts.poppins(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
-                          color: selectedButtonIndex == index
-                              ? primaryColor
-                              : Colors.white,
-                        )),
-                    onTap: () {
-                      setState(() {
-                        selectedButtonIndex = index;
-                        if (selectedButtonIndex == 0) {
-                          _fetchDataFromFirestore();
-                        }
-                      });
-                    },
-                  );
-                },
+          const SizedBox(height: 20),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Text(
+              'Flutter Snips.',
+              style: GoogleFonts.poppins(
+                fontSize: 20,
+                fontWeight: FontWeight.w700,
               ),
-            )
-          ]),
+            ),
+          ),
+          const SizedBox(height: 8),
+          const Divider(color: Colors.grey, thickness: 0.2),
+          const SizedBox(height: 30),
+          Container(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: ListView.separated(
+              scrollDirection: Axis.vertical,
+              shrinkWrap: true,
+              itemCount: items.length,
+              separatorBuilder: (context, index) {
+                return const SizedBox(height: 4);
+              },
+              itemBuilder: (context, index) {
+                final item = items[index];
+                return SideMenuTile(
+                  title: item['title'],
+                  iconData: item['icon'],
+                  isSelected: selectedButtonIndex == index,
+                  onTap: () {
+                    setState(() {
+                      selectedButtonIndex = index;
+                      if (selectedButtonIndex == 0) {
+                        _fetchDataFromFirestore();
+                      }
+                    });
+                  },
+                );
+              },
+            ),
+          )
         ],
       ),
     );
-  }
-
-  void intermediateSearch(String query) {
-    setState(() {
-      searchQuery = query;
-    });
   }
 
   List<CardModel> searchItems(List<CardModel> list, String query) {
@@ -455,5 +402,67 @@ class _ShowCaseState extends State<Showcase> {
       final itemName = item.title.toLowerCase();
       return itemName.contains(query.toLowerCase());
     }).toList();
+  }
+}
+
+class SideMenuTile extends StatefulWidget {
+  final String title;
+  final IconData iconData;
+  final VoidCallback onTap;
+  final bool isSelected;
+  const SideMenuTile(
+      {super.key,
+      required this.title,
+      required this.iconData,
+      required this.onTap,
+      required this.isSelected});
+
+  @override
+  State<SideMenuTile> createState() => _SideMenuTileState();
+}
+
+class _SideMenuTileState extends State<SideMenuTile> {
+  bool hovering = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: widget.onTap,
+      child: MouseRegion(
+        onEnter: (event) => setState(() => hovering = true),
+        onExit: (event) => setState(() => hovering = false),
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 150),
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 18),
+          decoration: BoxDecoration(
+            color: hovering
+                ? Colors.grey[900]
+                : widget.isSelected
+                    ? Colors.grey[900]
+                    : Colors.transparent,
+            borderRadius:
+                const BorderRadius.horizontal(right: Radius.circular(100)),
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(
+                widget.iconData,
+                color: widget.isSelected ? primaryColor : Colors.white,
+              ),
+              const SizedBox(width: 14),
+              Text(
+                widget.title,
+                style: GoogleFonts.poppins(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                  color: widget.isSelected ? primaryColor : Colors.grey[300],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }

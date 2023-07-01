@@ -1,7 +1,10 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:fluttersnips/Constants/AppColors.dart';
 import 'package:fluttersnips/services/auth/AuthRepository.dart';
 import 'package:fluttersnips/widgets/NavBar/presentation/CustomDialog.dart';
+import 'package:fluttersnips/widgets/search_box.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_network/image_network.dart';
 import 'package:random_avatar/random_avatar.dart';
@@ -10,22 +13,15 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../../Models/cardModel.dart';
 
 class NavBar extends StatefulWidget {
-  final Function(String) onSearch;
-
-  const NavBar({super.key, required this.onSearch});
+  const NavBar({super.key});
 
   @override
   State<NavBar> createState() => _NavBarState();
 }
 
 class _NavBarState extends State<NavBar> {
-  final TextEditingController _searchController = TextEditingController();
   Widget contentWidget = Container();
-  int contriCount = 0;
-
-  void handleSearch(String query) {
-    widget.onSearch(query);
-  }
+  int contributionCount = 0;
 
   Future<void> _launchUrl() async {
     if (!await launchUrl(
@@ -48,53 +44,26 @@ class _NavBarState extends State<NavBar> {
       contentWidget = loggedInProfile();
     }
 
-    return Column(
-      children: [
-        Container(
-          child: Row(
-              children: [search(), contributeBtn('Contribute'), contentWidget]),
-        ),
-      ],
-    );
-  }
-
-  Widget search() {
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
+    return ClipRect(
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 100, sigmaY: 30),
         child: Container(
-          // Add padding around the search bar
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          // Use a Material design search bar
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(15),
-            child: TextField(
-              cursorColor: primaryColor,
-              textAlign: TextAlign.center,
-              controller: _searchController,
-              decoration: InputDecoration(
-                filled: true,
-                fillColor: const Color(0xFF202020),
-                hintStyle: GoogleFonts.poppins(
-                  color: const Color(0xFF838383),
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400,
+          color: Colors.black.withOpacity(0.8),
+          padding: const EdgeInsets.symmetric(horizontal: 40),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 14),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                contributeBtn('Contribute'),
+                const Flexible(
+                  child: FractionallySizedBox(
+                    widthFactor: 0.9,
+                    child: SearchBox(),
+                  ),
                 ),
-                hintText: 'Type your search here',
-
-                // Add a clear button to the search bar
-                suffixIcon: IconButton(
-                  icon: const Icon(Icons.clear),
-                  onPressed: () => _searchController.clear(),
-                ),
-                // Add a search icon or button to the search bar
-                prefixIcon: IconButton(
-                  icon: const Icon(Icons.search),
-                  onPressed: () {
-                    handleSearch(_searchController.text);
-                  },
-                ),
-              ),
+                contentWidget,
+              ],
             ),
           ),
         ),
@@ -104,18 +73,14 @@ class _NavBarState extends State<NavBar> {
 
   Widget contributeBtn(String text) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
-      child: Container(
-        // Increase the button height as desired
+      padding: const EdgeInsets.only(right: 16),
+      child: SizedBox(
         height: 45,
         child: ElevatedButton.icon(
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(primaryColor),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-              RoundedRectangleBorder(
-                borderRadius:
-                    BorderRadius.circular(10.0), // Decrease the border radius
-              ),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
             ),
           ),
           onPressed: () {
@@ -124,7 +89,7 @@ class _NavBarState extends State<NavBar> {
               builder: (BuildContext context) {
                 return AlertDialog(
                   title: const Text("Select Your Contributing Platform"),
-                  content: Container(
+                  content: SizedBox(
                     height: 100,
                     child: Column(children: [
                       ElevatedButton.icon(
@@ -133,7 +98,7 @@ class _NavBarState extends State<NavBar> {
                               context: context,
                               barrierDismissible: false,
                               builder: (BuildContext context) {
-                                return MyCustomDialog();
+                                return const MyCustomDialog();
                               });
                         },
                         icon: const Icon(
@@ -158,7 +123,7 @@ class _NavBarState extends State<NavBar> {
                           color: primaryColor,
                           size: 24.0,
                         ),
-                        label: Text('GitHub',
+                        label: const Text('GitHub',
                             style: TextStyle(color: primaryColor)), // <-- Text
                       ),
                     ]),
@@ -168,21 +133,21 @@ class _NavBarState extends State<NavBar> {
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      child:
-                          Text('Close', style: TextStyle(color: primaryColor)),
+                      child: const Text('Close',
+                          style: TextStyle(color: primaryColor)),
                     ),
                   ],
                 );
               },
             );
           },
-          icon: Icon(Icons.add, color: Colors.white),
+          icon: const Icon(Icons.add, color: Colors.white),
           label: Text(
             'Contribute',
             style: GoogleFonts.poppins(
+              fontSize: 15,
               color: Colors.white,
-              fontSize: 20,
-              fontWeight: FontWeight.w600,
+              // fontWeight: FontWeight.w600,
             ),
           ),
         ),
@@ -192,31 +157,21 @@ class _NavBarState extends State<NavBar> {
 
   Widget defaultProfile() {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(16.0, 8, 16, 8),
-      child: GestureDetector(
-        onTap: () async {
-          // do the login
-          await authRepositoryInstance.signInWithGoogle(context);
-          if (authRepositoryInstance.name != null) {
-            setState(() {
-              contentWidget = loggedInProfile();
-            });
-          }
-        },
-        child: Row(
-          children: [
-            RandomAvatar('saytoonz', height: 40, width: 40),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(16.0, 8, 16, 8),
-              child: Text(
-                'Login',
-                style: GoogleFonts.poppins(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-            ),
-          ],
+      padding: const EdgeInsets.only(left: 16),
+      child: Tooltip(
+        message: authRepositoryInstance.name != null
+            ? authRepositoryInstance.name!
+            : 'Click to Login',
+        child: InkWell(
+          onTap: () async {
+            await authRepositoryInstance.signInWithGoogle(context);
+            if (authRepositoryInstance.name != null) {
+              setState(() {
+                contentWidget = loggedInProfile();
+              });
+            }
+          },
+          child: RandomAvatar('saytoonz', height: 40, width: 40),
         ),
       ),
     );
@@ -224,53 +179,41 @@ class _NavBarState extends State<NavBar> {
 
   Widget loggedInProfile() {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(16.0, 8, 16, 8),
+      padding: const EdgeInsets.only(left: 16),
       child: GestureDetector(
         onTap: () async {
           if (authRepositoryInstance.uid != null &&
               authRepositoryInstance.imageUrl != null &&
               authRepositoryInstance.name != null) {
-            contriCount = await authRepositoryInstance
+            contributionCount = await authRepositoryInstance
                 .getContributionCount(authRepositoryInstance.uid!);
 
-            showDialog(
-              context: context,
-              barrierDismissible: false,
-              builder: (BuildContext context) {
-                return logginDialog();
-              },
-            );
+            if (mounted) {
+              showDialog(
+                context: context,
+                barrierDismissible: false,
+                builder: (BuildContext context) {
+                  return logginDialog();
+                },
+              );
+            }
           } else {
             // Handle null values here
             // Display an error message or handle the situation accordingly
           }
         },
-        child: Row(
-          children: [
-            SizedBox(
+        child: SizedBox(
+          height: 40,
+          width: 40,
+          child: CircleAvatar(
+            radius: 20,
+            child: ImageNetwork(
+              borderRadius: BorderRadius.circular(20),
+              image: authRepositoryInstance.imageUrl!,
               height: 40,
               width: 40,
-              child: CircleAvatar(
-                radius: 20,
-                child: ImageNetwork(
-                  borderRadius: BorderRadius.circular(20),
-                  image: authRepositoryInstance.imageUrl!,
-                  height: 40,
-                  width: 40,
-                ),
-              ),
             ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(16.0, 8, 16, 8),
-              child: Text(
-                authRepositoryInstance.name!,
-                style: GoogleFonts.poppins(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );
@@ -304,7 +247,7 @@ class _NavBarState extends State<NavBar> {
               ),
             ),
             Text(
-              '💘 Contribution Count : ${(contriCount)}',
+              '💘 Contribution Count : ${(contributionCount)}',
               style: GoogleFonts.poppins(
                 fontSize: 10,
                 fontWeight: FontWeight.w600,
