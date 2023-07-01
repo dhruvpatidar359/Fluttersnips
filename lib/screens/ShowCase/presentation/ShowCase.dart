@@ -6,6 +6,7 @@ import 'package:fluttersnips/screens/ShowCaseContent/presentation/showCaseConten
 import 'package:fluttersnips/services/Datafetch/firebaseRepository.dart';
 import 'package:fluttersnips/widgets/NavBar/presentation/NavBar.dart';
 import 'package:fluttersnips/widgets/WidList/card/cardList.dart';
+import 'package:fluttersnips/widgets/WidList/navBar/navBarList.dart';
 import 'package:glassy/glassy_card.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rive/rive.dart' show RiveAnimation;
@@ -301,7 +302,7 @@ class _ShowCaseState extends State<Showcase> {
 
       case 3:
         if (navBarList.isEmpty) {
-          navBarList = [];
+          navBarList = navbarListW;
         }
 
         contentWidget = showCaseContent(
