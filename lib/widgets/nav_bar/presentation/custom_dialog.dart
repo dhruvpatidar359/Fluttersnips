@@ -1,9 +1,9 @@
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttersnips/services/Datafetch/firebaseRepository.dart';
-import 'package:fluttersnips/services/auth/AuthRepository.dart';
+import 'package:fluttersnips/services/auth/auth_repository.dart';
+import 'package:fluttersnips/services/datafetch/firebase_repository.dart';
 
-import '../../../Constants/AppColors.dart';
+import '../../../constants/app_colors.dart';
 
 class MyCustomDialog extends StatefulWidget {
   const MyCustomDialog({Key? key}) : super(key: key);
@@ -17,55 +17,57 @@ class _MyCustomDialogState extends State<MyCustomDialog> {
   final TextEditingController _widNameController = TextEditingController();
   final TextEditingController _codeController = TextEditingController();
   String _selectedClass = 'Card';
-  final List<String> _classOptions = [ 'Container',
-  'Row',
-  'Column',
-  'Text',
-  'TextField',
-  'Button',
-  'TextButton',
-  'ElevatedButton',
-  'IconButton',
-  'AppBar',
-  'Image',
-  'ListView',
-  'GridView',
-  'Card',
-  'ExpansionPanel',
-  'AlertDialog',
-  'BottomSheet',
-  'Drawer',
-  'SnackBar',
-  'CircularProgressIndicator',
-  'LinearProgressIndicator',
-  'Checkbox',
-  'Radio',
-  'Switch',
-  'DropdownButton',
-  'Slider',
-  'DatePicker',
-  'TimePicker',
-  'Stack',
-  'Positioned',
-  'Align',
-  'Wrap',
-  'Spacer',
-  'InkWell',
-  'GestureDetector',
-  'Opacity',
-  'AnimatedContainer',
-  'Hero',
-  'ClipRRect',
-  'IndexedStack',
-  'PageView',
-  'Tooltip',
-  'RichText',
-  'DataTable',
-  'Stepper',
-  'TabBar',
-  'SnackBar',
-  'WebView',
-  'VideoPlayer',];
+  final List<String> _classOptions = [
+    'Container',
+    'Row',
+    'Column',
+    'Text',
+    'TextField',
+    'Button',
+    'TextButton',
+    'ElevatedButton',
+    'IconButton',
+    'AppBar',
+    'Image',
+    'ListView',
+    'GridView',
+    'Card',
+    'ExpansionPanel',
+    'AlertDialog',
+    'BottomSheet',
+    'Drawer',
+    'SnackBar',
+    'CircularProgressIndicator',
+    'LinearProgressIndicator',
+    'Checkbox',
+    'Radio',
+    'Switch',
+    'DropdownButton',
+    'Slider',
+    'DatePicker',
+    'TimePicker',
+    'Stack',
+    'Positioned',
+    'Align',
+    'Wrap',
+    'Spacer',
+    'InkWell',
+    'GestureDetector',
+    'Opacity',
+    'AnimatedContainer',
+    'Hero',
+    'ClipRRect',
+    'IndexedStack',
+    'PageView',
+    'Tooltip',
+    'RichText',
+    'DataTable',
+    'Stepper',
+    'TabBar',
+    'SnackBar',
+    'WebView',
+    'VideoPlayer',
+  ];
   bool _isFormValid = false;
 
   @override
@@ -170,12 +172,11 @@ class _MyCustomDialogState extends State<MyCustomDialog> {
     final String widName = _widNameController.text;
 
     FirebaseRepository().saveCode(widName, email, code, classT);
-    if(authRepositoryInstance.name != null) {
-       await authRepositoryInstance
-        .increaseContriCount(authRepositoryInstance.uid.toString());
-
+    if (authRepositoryInstance.name != null) {
+      await authRepositoryInstance
+          .increaseContriCount(authRepositoryInstance.uid.toString());
     }
-   
+
     final snackBar = SnackBar(
       /// need to set following properties for best effect of awesome_snackbar_content
       elevation: 0,
@@ -195,12 +196,12 @@ class _MyCustomDialogState extends State<MyCustomDialog> {
       ),
     );
 
-    ScaffoldMessenger.of(context)
-      ..hideCurrentSnackBar()
-      ..showSnackBar(snackBar);
+    if (mounted) {
+      ScaffoldMessenger.of(context)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(snackBar);
 
-    // Perform your desired action with the entered data
-
-    Navigator.of(context).pop();
+      Navigator.of(context).pop();
+    }
   }
 }

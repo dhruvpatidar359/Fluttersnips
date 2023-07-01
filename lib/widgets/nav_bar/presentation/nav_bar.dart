@@ -1,16 +1,16 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:fluttersnips/Constants/AppColors.dart';
-import 'package:fluttersnips/services/auth/AuthRepository.dart';
-import 'package:fluttersnips/widgets/NavBar/presentation/CustomDialog.dart';
+import 'package:fluttersnips/constants/app_colors.dart';
+import 'package:fluttersnips/services/auth/auth_repository.dart';
+import 'package:fluttersnips/widgets/nav_bar/presentation/custom_dialog.dart';
 import 'package:fluttersnips/widgets/search_box.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_network/image_network.dart';
 import 'package:random_avatar/random_avatar.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../../Models/cardModel.dart';
+import '../../../models/card_model.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({super.key});
@@ -48,7 +48,7 @@ class _NavBarState extends State<NavBar> {
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 100, sigmaY: 30),
         child: Container(
-          color: Colors.black.withOpacity(0.8),
+          color: Colors.black.withOpacity(0.6),
           padding: const EdgeInsets.symmetric(horizontal: 40),
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 14),
@@ -58,7 +58,7 @@ class _NavBarState extends State<NavBar> {
                 contributeBtn('Contribute'),
                 const Flexible(
                   child: FractionallySizedBox(
-                    widthFactor: 0.9,
+                    widthFactor: 0.7,
                     child: SearchBox(),
                   ),
                 ),
@@ -269,7 +269,7 @@ class _NavBarState extends State<NavBar> {
             setState(() {
               contentWidget = defaultProfile();
             });
-            Navigator.of(context).pop();
+            if (mounted) Navigator.of(context).pop();
           },
           child: const Text('Logout', style: TextStyle(color: primaryColor)),
         ),

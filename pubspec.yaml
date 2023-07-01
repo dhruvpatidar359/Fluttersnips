@@ -1,5 +1,5 @@
 name: fluttersnips
-description: A new Flutter project.
+description: A comprehensive component library for Flutter.
 
 publish_to: 'none'
 
@@ -35,6 +35,7 @@ dependencies:
   
   # p
   provider: ^6.0.5
+  
   # r
   random_avatar: ^0.0.8
   rive: ^0.11.3

@@ -1,10 +1,7 @@
-import 'package:flutter/material.dart';
+import '../../../models/card_model.dart';
+import 'nav_bar_wild_list.dart';
 
-import '../../../Models/cardModel.dart';
-import 'navBarWidList.dart';
-
-List<CardModel> navbarListW = [
-
+const List<CardModel> navbarListW = [
   CardModel(
     "dhruvpatidar35@gmail.com",
     '''
@@ -88,6 +85,4 @@ Widget companyLogo() {
     NavBar(),
     "Glow NavBar",
   ),
-
-
 ];

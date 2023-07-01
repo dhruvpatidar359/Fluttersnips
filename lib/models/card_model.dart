@@ -7,5 +7,5 @@ class CardModel {
   final Widget? widget;
   final String title;
 
-  CardModel(this.email, this.code, this.classT, this.widget, this.title);
+  const CardModel(this.email, this.code, this.classT, this.widget, this.title);
 }

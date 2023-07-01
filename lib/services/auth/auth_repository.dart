@@ -20,7 +20,8 @@ class AuthRepository {
   AuthRepository._internal();
 
   final _firebaseAuth = FirebaseAuth.instance;
-  final GoogleSignIn googleSignIn = GoogleSignIn(clientId: "${(dotenv.env['GOOGLE_SIGNIN_CLIENT_ID'])}");
+  final GoogleSignIn googleSignIn =
+      GoogleSignIn(clientId: "${(dotenv.env['GOOGLE_SIGNIN_CLIENT_ID'])}");
 
   String? name;
   String? imageUrl;
@@ -60,7 +61,7 @@ class AuthRepository {
         ..hideCurrentSnackBar()
         ..showSnackBar(snackBar);
     } catch (error) {
-      print('Google Sign-Out Error: $error');
+      debugPrint('Google Sign-Out Error: $error');
       final snackBar = SnackBar(
         /// need to set following properties for best effect of awesome_snackbar_content
         elevation: 0,
@@ -133,7 +134,7 @@ class AuthRepository {
         ..hideCurrentSnackBar()
         ..showSnackBar(snackBar);
     } catch (error) {
-      print('Google Sign-In Error: $error');
+      debugPrint('Google Sign-In Error: $error');
       final snackBar = SnackBar(
         /// need to set following properties for best effect of awesome_snackbar_content
         elevation: 0,
@@ -164,8 +165,6 @@ class AuthRepository {
       userEmail = user.email;
       imageUrl = user.photoURL;
     }
-
-   
   }
 
   Future<void> isLoggedIn() async {
@@ -207,7 +206,7 @@ class AuthRepository {
 
       return contributionCount;
     } catch (e) {
-      print(e);
+      debugPrint(e.toString());
       return 0;
     }
   }
@@ -238,7 +237,7 @@ class AuthRepository {
         }
       }
     } catch (e) {
-      print(e);
+      debugPrint(e.toString());
     }
   }
 }

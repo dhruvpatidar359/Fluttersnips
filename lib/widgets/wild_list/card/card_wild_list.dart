@@ -105,8 +105,6 @@ class _ModuleCardState extends State<ModuleCard> {
   }
 }
 
-// Tilt Widget
-
 class TiltWidget extends StatefulWidget {
   final double yaxis;
 
@@ -332,7 +330,7 @@ class FloatingAnimationCard extends StatefulWidget {
   const FloatingAnimationCard({super.key});
 
   @override
-  _FloatingAnimationCardState createState() => _FloatingAnimationCardState();
+  State<FloatingAnimationCard> createState() => _FloatingAnimationCardState();
 }
 
 class _FloatingAnimationCardState extends State<FloatingAnimationCard>
@@ -401,7 +399,7 @@ class FlipAnimationCard extends StatefulWidget {
   const FlipAnimationCard({super.key});
 
   @override
-  _FlipAnimationCardState createState() => _FlipAnimationCardState();
+  State<FlipAnimationCard> createState() => _FlipAnimationCardState();
 }
 
 class _FlipAnimationCardState extends State<FlipAnimationCard>
@@ -488,7 +486,7 @@ class RadialAnimationCard extends StatefulWidget {
   const RadialAnimationCard({super.key});
 
   @override
-  _RadialAnimationCardState createState() => _RadialAnimationCardState();
+  State<RadialAnimationCard> createState() => _RadialAnimationCardState();
 }
 
 class _RadialAnimationCardState extends State<RadialAnimationCard>
@@ -548,7 +546,7 @@ class AnimatedContainerCard extends StatefulWidget {
   const AnimatedContainerCard({super.key});
 
   @override
-  _AnimatedContainerCardState createState() => _AnimatedContainerCardState();
+  State<AnimatedContainerCard> createState() => _AnimatedContainerCardState();
 }
 
 class _AnimatedContainerCardState extends State<AnimatedContainerCard> {
@@ -591,7 +589,7 @@ class AnimatedPositionedCard extends StatefulWidget {
   const AnimatedPositionedCard({super.key});
 
   @override
-  _AnimatedPositionedCardState createState() => _AnimatedPositionedCardState();
+  State<AnimatedPositionedCard> createState() => _AnimatedPositionedCardState();
 }
 
 class _AnimatedPositionedCardState extends State<AnimatedPositionedCard> {
@@ -679,7 +677,7 @@ class AnimatedCard extends StatefulWidget {
   const AnimatedCard({super.key});
 
   @override
-  _AnimatedCardState createState() => _AnimatedCardState();
+  State<AnimatedCard> createState() => _AnimatedCardState();
 }
 
 class _AnimatedCardState extends State<AnimatedCard>
@@ -761,7 +759,7 @@ class FlipCard extends StatefulWidget {
   const FlipCard({super.key});
 
   @override
-  _FlipCardState createState() => _FlipCardState();
+  State<FlipCard> createState() => _FlipCardState();
 }
 
 class _FlipCardState extends State<FlipCard>
@@ -870,10 +868,15 @@ class StackedCard extends StatelessWidget {
   }
 }
 
-class ListCard extends StatelessWidget {
-  final List<String> items = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5'];
+class ListCard extends StatefulWidget {
+  const ListCard({super.key});
 
-  ListCard({super.key});
+  @override
+  State<ListCard> createState() => _ListCardState();
+}
+
+class _ListCardState extends State<ListCard> {
+  final List<String> items = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5'];
 
   @override
   Widget build(BuildContext context) {

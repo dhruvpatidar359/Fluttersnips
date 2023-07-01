@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:fluttersnips/Models/cardModel.dart';
-import 'package:fluttersnips/widgets/WidList/card/cardWidList.dart';
+import 'package:fluttersnips/models/card_model.dart';
+import 'package:fluttersnips/widgets/wild_list/card/card_wild_list.dart';
 import 'package:glassy/glassy_card.dart';
 
-List<CardModel> cardListW = [
+const List<CardModel> cardListW = [
   CardModel(
-      'dhruvpatidar35@gmail.com',
-      '''class ModuleCard extends StatefulWidget {
+    'dhruvpatidar35@gmail.com',
+    '''class ModuleCard extends StatefulWidget {
   const ModuleCard({Key? key}) : super(key: key);
 
   @override
@@ -19,7 +19,6 @@ class _ModuleCardState extends State<ModuleCard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
         body: Center(
           child: MouseRegion(
             onEnter: (event) {
@@ -114,9 +113,10 @@ class _ModuleCardState extends State<ModuleCard> {
 }
 
 ''',
-      'card',
-      ModuleCard(),
-      'Animated Card'),
+    'card',
+    ModuleCard(),
+    'Animated Card',
+  ),
   CardModel(
       'dhruvpatidar35@gmail.com',
       '''
@@ -500,7 +500,9 @@ class ShadowCard extends StatelessWidget {
       'card',
       ShadowCard(),
       'ShadowCard'),
-  CardModel('dhruvpatidar35@gmail.com', '''
+  CardModel(
+      'dhruvpatidar35@gmail.com',
+      '''
 class AnimatedCard extends StatefulWidget {
   @override
   _AnimatedCardState createState() => _AnimatedCardState();
@@ -549,9 +551,13 @@ class _AnimatedCardState extends State<AnimatedCard> with SingleTickerProviderSt
 
 
 
-''', 'card', AnimatedCard(),
+''',
+      'card',
+      AnimatedCard(),
       'AnimatedCard'),
-  CardModel('dhruvpatidar35@gmai.com', '''
+  CardModel(
+      'dhruvpatidar35@gmai.com',
+      '''
 class GradientCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -581,10 +587,13 @@ class GradientCard extends StatelessWidget {
     );
   }
 }
-''', 'card', GradientCard(), 'GradientCard'),
-
-
-  CardModel('dhruvpatidar35@gmail.com', '''
+''',
+      'card',
+      GradientCard(),
+      'GradientCard'),
+  CardModel(
+      'dhruvpatidar35@gmail.com',
+      '''
 class FlipCard extends StatefulWidget {
   @override
   _FlipCardState createState() => _FlipCardState();
@@ -652,9 +661,13 @@ class _FlipCardState extends State<FlipCard> with SingleTickerProviderStateMixin
 }
 
 
-''', 'card', FlipCard(), 'FlipCard')
-
-,CardModel('dhruvpatidar35@gmail.com', '''
+''',
+      'card',
+      FlipCard(),
+      'FlipCard'),
+  CardModel(
+      'dhruvpatidar35@gmail.com',
+      '''
   class StackedCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -692,9 +705,13 @@ class _FlipCardState extends State<FlipCard> with SingleTickerProviderStateMixin
       ],
     );
   }
-}''', 'card', StackedCard(), 'StackedCard'),
-
-CardModel('dhruvpatidar35@gmail.com', '''
+}''',
+      'card',
+      StackedCard(),
+      'StackedCard'),
+  CardModel(
+      'dhruvpatidar35@gmail.com',
+      '''
 class ListCard extends StatelessWidget {
   final List<String> items = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5'];
 
@@ -726,10 +743,13 @@ class ListCard extends StatelessWidget {
 
 
 
-''','card', ListCard(), 'ListCard')
-
-
-,CardModel('dhruvpatidar35@gmail.com', '''library glassy;
+''',
+      'card',
+      ListCard(),
+      'ListCard'),
+  CardModel(
+    'dhruvpatidar35@gmail.com',
+    '''library glassy;
 
 import 'package:glassy/glassy_config.dart';
 
@@ -839,7 +859,9 @@ borderRadius: BorderRadius.all(Radius.circular(40.0)),
 child: Container(),
 ),
 
-''', 'card', GlassyCard(child: Container() ), 'Glassy')
-
-
+''',
+    'card',
+    GlassyCard(child: SizedBox()),
+    'Glassy',
+  )
 ];

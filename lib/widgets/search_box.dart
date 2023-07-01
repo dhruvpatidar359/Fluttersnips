@@ -29,7 +29,8 @@ class _SearchBoxState extends State<SearchBox> {
         controller: _searchController,
         style: GoogleFonts.poppins(fontSize: 15),
         onChanged: (value) {
-          searchProvider.query = value.trim();
+          searchProvider.query = value;
+          initiateSearch();
         },
         decoration: InputDecoration(
           filled: true,
@@ -37,11 +38,17 @@ class _SearchBoxState extends State<SearchBox> {
           fillColor: const Color(0xFF202020),
           hintText: 'Search',
           hintStyle: GoogleFonts.poppins(
-            color: const Color(0xFF838383),
             fontSize: 15,
+            color: const Color(0xFF838383),
           ),
 
-          // Add a clear button to the search bar
+          // search icon
+          prefixIcon: const Padding(
+            padding: EdgeInsets.only(left: 4.0),
+            child: Icon(CupertinoIcons.search, size: 18),
+          ),
+
+          // clear button/icon
           suffixIcon: Padding(
             padding: const EdgeInsets.only(right: 4.0),
             child: IconButton(
@@ -50,24 +57,10 @@ class _SearchBoxState extends State<SearchBox> {
               onPressed: () => _searchController.clear(),
             ),
           ),
-
-          // Add a search icon or button to the search bar
-          prefixIcon: Padding(
-            padding: const EdgeInsets.only(left: 4.0),
-            child: IconButton(
-              iconSize: 18,
-              icon: const Icon(CupertinoIcons.search),
-              onPressed: () {
-                handleSearch(_searchController.text);
-              },
-            ),
-          ),
         ),
       ),
     );
   }
 
-  void handleSearch(String query) {
-    // widget.onSearch(query);
-  }
+  void initiateSearch() => searchProvider.search();
 }

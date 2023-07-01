@@ -1,11 +1,8 @@
-import 'package:fluttersnips/widgets/WidList/shapes/shapeWidList.dart';
+// Square shape using canvas
 
-import '../../../Models/cardModel.dart';
+import 'package:flutter/material.dart';
 
-List<CardModel> shapeListW = [
-  CardModel(
-      "avinashjindal7866@gmail.com",
-      '''class SquareShape extends StatefulWidget {
+class SquareShape extends StatefulWidget {
   const SquareShape({super.key});
 
   @override
@@ -15,14 +12,13 @@ List<CardModel> shapeListW = [
 class _SquareShapeState extends State<SquareShape> {
   @override
   Widget build(BuildContext context) {
-    return
-      SizedBox(
-        width: 400,
-        height: 400,
-        child: CustomPaint(
-          painter: OpenPainter(rectColor: Color(0xffffffff), rectSize: Size(200, 250)),
-        ),
-      
+    return SizedBox(
+      width: 400,
+      height: 400,
+      child: CustomPaint(
+        painter: OpenPainter(
+            rectColor: Colors.yellow, rectSize: const Size(200, 250)),
+      ),
     );
   }
 }
@@ -39,19 +35,18 @@ class OpenPainter extends CustomPainter {
     var paint1 = Paint()
       ..color = rectColor
       ..style = PaintingStyle.fill;
-    canvas.drawRect(Offset(100, 100) & rectSize, paint1);
+    canvas.drawRect(const Offset(100, 100) & rectSize, paint1);
   }
 
   @override
   bool shouldRepaint(CustomPainter oldDelegate) => true;
 }
-''',
-      "Shapes",
-      SquareShape(),
-      "Square Shape using Canvas"),
-  CardModel(
-      "avinashjindal7866@gmail.com",
-      '''class TriangleShape extends StatelessWidget {
+
+// triangle shape using canvas
+
+class TriangleShape extends StatelessWidget {
+  const TriangleShape({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -81,13 +76,11 @@ class DrawTriangle extends CustomPainter {
   }
 }
 
-''',
-      "Shapes",
-      TriangleShape(),
-      "Triangle Shape using Canvas"),
-  CardModel(
-      "avinashjindal7866@gmail.com",
-      '''class PentagonShape extends StatelessWidget {
+// Pentagon shape using Canvas
+
+class PentagonShape extends StatelessWidget {
+  const PentagonShape({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -123,27 +116,23 @@ class DrawPentagon extends CustomClipper<Path> {
   }
 }
 
-''',
-      "Shapes",
-      PentagonShape(),
-      "Pentagon Shape using Canvas"),
-  CardModel(
-      "avinashjindal7866@gmail.com",
-      '''class HexagonShape extends StatelessWidget {
-  
+// Hexagon shape using canvas
+
+class HexagonShape extends StatelessWidget {
+  const HexagonShape({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Center(
-          child: ClipPath(
-            clipper: DrawHexagon(),
-            child: Container(
-              color: Colors.blue,
-              width: 300,
-              height: 300,
-            ),
-          ),
-        );
+      child: ClipPath(
+        clipper: DrawHexagon(),
+        child: Container(
+          color: Colors.blue,
+          width: 300,
+          height: 300,
+        ),
+      ),
+    );
   }
 }
 
@@ -151,7 +140,14 @@ class DrawHexagon extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     Path path = Path();
-    path.addPolygon([Offset(0, size.height / 2), Offset(size.width * 1 / 3, size.height), Offset(size.width * 2 / 3, size.height), Offset(size.width, size.height / 2), Offset(size.width * 2 / 3, 0), Offset(size.width * 1 / 3, 0)], true);
+    path.addPolygon([
+      Offset(0, size.height / 2),
+      Offset(size.width * 1 / 3, size.height),
+      Offset(size.width * 2 / 3, size.height),
+      Offset(size.width, size.height / 2),
+      Offset(size.width * 2 / 3, 0),
+      Offset(size.width * 1 / 3, 0)
+    ], true);
     return path;
   }
 
@@ -160,9 +156,3 @@ class DrawHexagon extends CustomClipper<Path> {
     return false;
   }
 }
-
-''',
-      "Shapes",
-      HexagonShape(),
-      "Hexagon Shape using Canvas"),
-];

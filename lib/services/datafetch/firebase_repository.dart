@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
 
-import '../../Models/cardModel.dart';
+import '../../models/card_model.dart';
 
 class FirebaseRepository {
   void saveCode(String title, String email, String code, String classT) {
@@ -34,8 +35,7 @@ class FirebaseRepository {
 
       return recents;
     } catch (e) {
-      // Error handling
-      print('Error fetching recents: $e');
+      debugPrint('Error fetching recents: $e');
       return [];
     }
   }

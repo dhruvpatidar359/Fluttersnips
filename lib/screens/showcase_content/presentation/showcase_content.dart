@@ -1,8 +1,7 @@
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:fluttersnips/Constants/AppColors.dart';
-import 'package:fluttersnips/Models/cardModel.dart';
+import 'package:fluttersnips/constants/app_colors.dart';
 import 'package:fluttersnips/shared/exports.dart';
 import 'package:selectable_code_view/selectable_code_view.dart';
 
@@ -107,17 +106,13 @@ class _ShowCaseContentState extends State<ShowCaseContent> {
                                   ),
                                   content: SingleChildScrollView(
                                     child: SelectableCodeView(
-                                      code: getCodeForIndex(index), // Code text
-                                      language: Language.DART, // Language
-                                      languageTheme:
-                                          LanguageTheme.vscodeDark(), // Theme
-                                      fontSize: 14.0, // Font size
-                                      withZoom:
-                                          true, // Enable/Disable zoom icon controls
-                                      withLinesCount:
-                                          true, // Enable/Disable line number
-                                      expanded:
-                                          false, // Enable/Disable container expansion
+                                      code: getCodeForIndex(index),
+                                      language: Language.DART,
+                                      languageTheme: LanguageTheme.vscodeDark(),
+                                      fontSize: 14.0,
+                                      withZoom: true,
+                                      withLinesCount: true,
+                                      expanded: false,
                                     ),
                                   ),
                                   actions: [
