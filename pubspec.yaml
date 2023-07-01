@@ -35,7 +35,6 @@ dependencies:
   
   # p
   provider: ^6.0.5
-  
   # r
   random_avatar: ^0.0.8
   rive: ^0.11.3
@@ -46,6 +45,7 @@ dependencies:
   # u
   url_launcher: ^6.1.11
   
+  flutter_glow: ^0.3.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
