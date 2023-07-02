@@ -41,7 +41,7 @@ This platform is created , so as to make a huge library of already builded code 
 
 
 ## 🛠️ Installation Steps + CONTRIBUTION
-
+  
 
 1. Open Terminal and Clone the Repo
 
@@ -66,7 +66,7 @@ GOOGLE_SIGNIN_CLIENT_ID=
 
 
 
-For getting  this you have to connect this app with your firebase flutter webapp :
+For getting  this you have to connect this app with your firebase flutter webapp :  
  1.1) Run the following commands or visit(https://firebase.google.com/docs/flutter/setup?platform=web)
  ```
 firebase login
@@ -82,8 +82,8 @@ flutterfire configure
 
 create a project for your firebase  
 1.2) Enable firebase authentication there ( With google authentication )  
- - There get the web - client - id copy it .
- - paste , it in the .env file
+ - There get the web - client - id copy it .  
+ - paste , it in the .env file  
   ```
 GOOGLE_SIGNIN_CLIENT_ID=YOUR_CLIENT_ID
 
