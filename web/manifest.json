@@ -1,11 +1,11 @@
 {
-    "name": "fluttersnips",
-    "short_name": "fluttersnips",
+    "name": "Flutter Snips",
+    "short_name": "Flutter Snips",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "A comprehensive component library for Flutter",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
