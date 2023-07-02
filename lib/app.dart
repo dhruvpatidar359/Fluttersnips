@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttersnips/constants/app_colors.dart';
-import 'package:fluttersnips/screens/showcase/presentation/showcase.dart';
+import 'package:fluttersnips/screens/ShowCase/presentation/ShowCase.dart';
 import 'package:fluttersnips/shared/exports.dart';
 
 class App extends StatelessWidget {

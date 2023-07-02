@@ -30,9 +30,6 @@ dependencies:
   google_sign_in: ^6.1.4
   google_fonts: ^4.0.4
   
-  # i
-  image_network: ^2.5.4+1
-  
   # p
   provider: ^6.0.5
   

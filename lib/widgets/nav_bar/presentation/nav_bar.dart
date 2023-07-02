@@ -6,7 +6,6 @@ import 'package:fluttersnips/services/auth/auth_repository.dart';
 import 'package:fluttersnips/widgets/nav_bar/presentation/custom_dialog.dart';
 import 'package:fluttersnips/widgets/search_box.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:image_network/image_network.dart';
 import 'package:random_avatar/random_avatar.dart';
 import 'package:url_launcher/url_launcher.dart';
 

@@ -119,7 +119,7 @@ class AuthRepository {
 
         backgroundColor: Colors.transparent,
         content: AwesomeSnackbarContent(
-          title: 'Scucces!',
+          title: 'Success!',
           message: 'Login Success!',
           messageFontSize: 15,
           titleFontSize: 20,
