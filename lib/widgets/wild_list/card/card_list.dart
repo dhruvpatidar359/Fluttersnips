@@ -734,15 +734,6 @@ class ListCard extends StatelessWidget {
   }
 }
 
-
-
-
-
-
-
-
-
-
 ''',
       'card',
       ListCard(),
@@ -861,7 +852,11 @@ child: Container(),
 
 ''',
     'card',
-    GlassyCard(child: SizedBox()),
+    GlassyCard(
+        child: SizedBox(
+      height: 200,
+      width: 200,
+    )),
     'Glassy',
   )
 ];

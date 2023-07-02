@@ -207,11 +207,13 @@ class _NavBarState extends State<NavBar> {
           width: 40,
           child: CircleAvatar(
             radius: 20,
-            child: ImageNetwork(
-              borderRadius: BorderRadius.circular(20),
-              image: authRepositoryInstance.imageUrl!,
+            child: SizedBox(
               height: 40,
               width: 40,
+              child: CircleAvatar(
+                radius: 20,
+                backgroundImage: NetworkImage(authRepositoryInstance.imageUrl!),
+              ),
             ),
           ),
         ),
@@ -227,11 +229,14 @@ class _NavBarState extends State<NavBar> {
         width: MediaQuery.of(context).size.width / 4,
         child: Column(
           children: [
-            ImageNetwork(
-                borderRadius: BorderRadius.circular(20),
-                image: authRepositoryInstance.imageUrl!,
-                height: 40,
-                width: 40),
+            SizedBox(
+              height: 40,
+              width: 40,
+              child: CircleAvatar(
+                radius: 20,
+                backgroundImage: NetworkImage(authRepositoryInstance.imageUrl!),
+              ),
+            ),
             Text(
               authRepositoryInstance.name!,
               style: GoogleFonts.poppins(

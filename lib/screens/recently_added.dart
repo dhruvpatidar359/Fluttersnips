@@ -9,15 +9,31 @@ class RecentlyAdded extends StatefulWidget {
 }
 
 class _RecentlyAddedState extends State<RecentlyAdded> {
-  List<CardModel> fetchedData = [];
+  late Future<List<CardModel>> fetchDataFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    fetchDataFuture = _fetchDataFromFirestore();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<void>(
-      future: _fetchDataFromFirestore(),
+    return FutureBuilder<List<CardModel>>(
+      future: fetchDataFuture,
       builder: (context, snapshot) {
-        if (!snapshot.hasData) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(child: CircularProgressIndicator());
+        }
+
+        if (snapshot.hasError) {
+          return Center(child: Text('Error: ${snapshot.error}'));
+        }
+
+        final fetchedData = snapshot.data;
+
+        if (fetchedData == null || fetchedData.isEmpty) {
+          return const Center(child: Text('No data available'));
         }
 
         return ShowCaseContent(crossAxisCount: 2, data: fetchedData);
@@ -25,8 +41,8 @@ class _RecentlyAddedState extends State<RecentlyAdded> {
     );
   }
 
-  Future<void> _fetchDataFromFirestore() async {
+  Future<List<CardModel>> _fetchDataFromFirestore() async {
     final data = await FirebaseRepository().fetchRecentsFromFirestore();
-    setState(() => fetchedData = data);
+    return data;
   }
 }

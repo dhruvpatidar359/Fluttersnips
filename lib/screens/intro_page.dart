@@ -41,7 +41,7 @@ class IntroPage extends StatelessWidget {
                       ),
                       Flexible(
                         child: Text(
-                          'By Dhruv Patidar',
+                          'By Community For Community',
                           style: GoogleFonts.poppins(
                             color: Colors.white,
                             fontSize: 16,
