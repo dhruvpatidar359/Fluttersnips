@@ -80,9 +80,14 @@ dart pub global activate flutterfire_cli
 flutterfire configure
 ```
 
-create a project for your firebase  
+Create a project for your firebase  
+
 1.2) Enable firebase authentication there ( With google authentication )  
- - There get the web - client - id copy it .  
+ - There get the web - client - id copy it .
+
+![rKMtK](https://github.com/dhruvpatidar359/Fluttersnips/assets/103873587/d4f8574b-41d5-4748-bd44-d71ff505645d)
+
+   
  - paste , it in the .env file  
   ```
 GOOGLE_SIGNIN_CLIENT_ID=YOUR_CLIENT_ID
@@ -90,7 +95,23 @@ GOOGLE_SIGNIN_CLIENT_ID=YOUR_CLIENT_ID
 ```
 1.3 ) Enable firebase firestore  
 1.4 ) Create two collections there as - recents and users  
-1.5 ) Your are done now  
+
+![image](https://github.com/dhruvpatidar359/Fluttersnips/assets/103873587/1c90ee2c-a7d2-4d2f-9d80-6c394f37217c)
+
+
+
+
+
+1.5 ) If you want to enable google login in the webapp , then you have to enable your PEOPLE API from GCP(Google Cloud Platform) .  
+
+![image](https://github.com/dhruvpatidar359/Fluttersnips/assets/103873587/4aadb703-1dab-4bea-928d-c5fea5267c55)  
+
+Steps : 1 ) Login to Google Cloud platform  
+2 ) Select your project  
+3 ) Go to API and Services  
+4 ) Search for People API  
+5 ) Enable It  
+
   
 5. Run App 
 ```
