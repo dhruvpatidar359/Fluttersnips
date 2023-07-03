@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttersnips/shared/exports.dart';
 import 'package:fluttersnips/widgets/wild_list/card/card_list.dart';
+import 'package:fluttersnips/widgets/wild_list/layout/layout_list.dart';
 import 'package:fluttersnips/widgets/wild_list/nav_bar/nav_bar_list.dart';
 import 'package:fluttersnips/widgets/wild_list/shapes/shape_list.dart';
 
@@ -19,6 +20,7 @@ class _SideBarState extends State<SideBar> {
     (title: "Navigation", iconData: Icons.navigation),
     (title: "WebView", iconData: Icons.web),
     (title: "Column", iconData: Icons.view_column),
+    (title: "Layout", iconData: Icons.mobile_screen_share_outlined),
   ];
 
   late SearchProvider searchProvider;
@@ -92,6 +94,9 @@ class _SideBarState extends State<SideBar> {
         break;
       case 3:
         searchProvider.setSearchIndex(navbarListW);
+        break;
+      case 6:
+        searchProvider.setSearchIndex(layoutListW);
         break;
       default:
     }

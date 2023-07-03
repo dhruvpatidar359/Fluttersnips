@@ -21,11 +21,20 @@ class DefaultFirebaseOptions {
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
-        return android;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for android - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -44,39 +53,11 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyASFN5ICc-5dnpiaMjlDA7tbdCnmKTPRUk',
-    appId: '1:1032616268679:web:16c80548406fbf803db922',
-    messagingSenderId: '1032616268679',
-    projectId: 'flusnip',
-    authDomain: 'flusnip.firebaseapp.com',
-    storageBucket: 'flusnip.appspot.com',
-  );
-
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCAKetGZ4I-bfdEsS_GwLgT2Xigucn3T9E',
-    appId: '1:1032616268679:android:6d901c1a5f72b7563db922',
-    messagingSenderId: '1032616268679',
-    projectId: 'flusnip',
-    storageBucket: 'flusnip.appspot.com',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDtwlvIpAn7x6EGlBPNe3ybEIXU7ni6rWk',
-    appId: '1:1032616268679:ios:58b73cb729d153a43db922',
-    messagingSenderId: '1032616268679',
-    projectId: 'flusnip',
-    storageBucket: 'flusnip.appspot.com',
-    iosClientId: '1032616268679-bu6cftvsjkb6cluff96p4l9q9iqovnqi.apps.googleusercontent.com',
-    iosBundleId: 'com.example.fluttersnips',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDtwlvIpAn7x6EGlBPNe3ybEIXU7ni6rWk',
-    appId: '1:1032616268679:ios:60d3348ee5d4dde23db922',
-    messagingSenderId: '1032616268679',
-    projectId: 'flusnip',
-    storageBucket: 'flusnip.appspot.com',
-    iosClientId: '1032616268679-ie3269pqcqi2pj2dauc9l5d411ipo75f.apps.googleusercontent.com',
-    iosBundleId: 'com.example.fluttersnips.RunnerTests',
+    apiKey: 'AIzaSyAu2v-tWOoMTs58lApgLaKOpOG7VA4Xy9s',
+    appId: '1:698588403108:web:fdd7012bc2f68e74c29d31',
+    messagingSenderId: '698588403108',
+    projectId: 'someshpandey',
+    authDomain: 'someshpandey.firebaseapp.com',
+    storageBucket: 'someshpandey.appspot.com',
   );
 }
