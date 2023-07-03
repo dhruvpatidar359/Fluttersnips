@@ -31,7 +31,7 @@ class MainView extends StatelessWidget {
                 return const Shapes();
 
               case 3:
-                return const Navigation();
+                return  Navigation();
 
               case 4:
                 return const WebView();
