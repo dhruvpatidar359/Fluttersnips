@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:random_avatar/random_avatar.dart';
 
 // Animated Card with animations
 class ModuleCard extends StatefulWidget {
@@ -891,6 +892,457 @@ class _ListCardState extends State<ListCard> {
               title: Text(items[index]),
             );
           },
+        ),
+      ),
+    );
+  }
+}
+
+class CurvedCard extends StatefulWidget {
+  const CurvedCard({Key? key}) : super(key: key);
+
+  @override
+  State<CurvedCard> createState() => _CurvedCardState();
+}
+
+class _CurvedCardState extends State<CurvedCard> {
+  bool isHovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: MouseRegion(
+          onEnter: (event) {
+            setState(() {
+              isHovered = true;
+            });
+          },
+          onExit: ((event) {
+            setState(() {
+              isHovered = false;
+            });
+          }),
+          child: Stack(
+            clipBehavior: Clip.none,
+            children: [
+              AnimatedContainer(
+                duration: const Duration(milliseconds: 375),
+                curve: Curves.easeOut,
+                height: isHovered ? 300.0 : 280.0,
+                width: 250.0,
+                decoration: BoxDecoration(
+                  color: Colors.blue[300],
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
+              ),
+              AnimatedPositioned(
+                duration: const Duration(milliseconds: 375),
+                curve: Curves.easeOut,
+                top: isHovered ? -100.0 : 0.0,
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 375),
+                  curve: Curves.easeOut,
+                  height: isHovered ? 390.0 : 280.0,
+                  width: 250.0,
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: AnimatedContainer(
+                          duration: const Duration(milliseconds: 375),
+                          curve: Curves.easeOut,
+                          height: isHovered ? 180.0 : 220.0,
+                          width: isHovered ? 180.0 : 220.0,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                        ),
+                      ),
+                      const Text(
+                        "Curved Card",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const Expanded(
+                        child: Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: SingleChildScrollView(
+                            child: Column(
+                              children: [
+                                Text(
+                                  'This card has curved edges.',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class SearchCard extends StatefulWidget {
+  const SearchCard({Key? key}) : super(key: key);
+
+  @override
+  State<SearchCard> createState() => _SearchCardState();
+}
+
+class _SearchCardState extends State<SearchCard> {
+  bool isHovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: MouseRegion(
+          onEnter: (event) {
+            setState(() {
+              isHovered = true;
+            });
+          },
+          onExit: ((event) {
+            setState(() {
+              isHovered = false;
+            });
+          }),
+          child: Stack(
+            clipBehavior: Clip.none,
+            children: [
+              AnimatedContainer(
+                duration: const Duration(milliseconds: 375),
+                curve: Curves.easeOut,
+                height: isHovered ? 300.0 : 280.0,
+                width: 250.0,
+                decoration: BoxDecoration(
+                  color: Colors.green[300],
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
+              ),
+              AnimatedPositioned(
+                duration: const Duration(milliseconds: 375),
+                curve: Curves.easeOut,
+                top: isHovered ? -100.0 : 0.0,
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 375),
+                  curve: Curves.easeOut,
+                  height: isHovered ? 390.0 : 280.0,
+                  width: 250.0,
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: AnimatedContainer(
+                          duration: const Duration(milliseconds: 375),
+                          curve: Curves.easeOut,
+                          height: isHovered ? 180.0 : 220.0,
+                          width: isHovered ? 180.0 : 220.0,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          child: Icon(
+                            Icons.search,
+                            size: 80.0,
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ),
+                      const Text(
+                        "Search Card",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const Expanded(
+                        child: Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: SingleChildScrollView(
+                            child: Column(
+                              children: [
+                                Text(
+                                  'This card contains a search icon.',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class ProfileCard extends StatefulWidget {
+  const ProfileCard({Key? key}) : super(key: key);
+
+  @override
+  State<ProfileCard> createState() => _ProfileCardState();
+}
+
+class _ProfileCardState extends State<ProfileCard> {
+  bool isHovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: MouseRegion(
+          onEnter: (event) {
+            setState(() {
+              isHovered = true;
+            });
+          },
+          onExit: ((event) {
+            setState(() {
+              isHovered = false;
+            });
+          }),
+          child: Stack(
+            clipBehavior: Clip.none,
+            children: [
+              AnimatedContainer(
+                duration: const Duration(milliseconds: 375),
+                curve: Curves.easeOut,
+                height: isHovered ? 300.0 : 280.0,
+                width: 250.0,
+                decoration: BoxDecoration(
+                  color: Colors.teal[300],
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
+              ),
+              AnimatedPositioned(
+                duration: const Duration(milliseconds: 375),
+                curve: Curves.easeOut,
+                top: isHovered ? -100.0 : 0.0,
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 375),
+                  curve: Curves.easeOut,
+                  height: isHovered ? 390.0 : 280.0,
+                  width: 250.0,
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: AnimatedContainer(
+                          duration: const Duration(milliseconds: 375),
+                          curve: Curves.easeOut,
+                          height: isHovered ? 180.0 : 220.0,
+                          width: isHovered ? 180.0 : 220.0,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          child: CircleAvatar(
+                            radius: 70.0,
+                            backgroundImage: AssetImage('assets/profile.jpg'),
+                          ),
+                        ),
+                      ),
+                      const Text(
+                        "Profile Card",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const Expanded(
+                        child: Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: SingleChildScrollView(
+                            child: Column(
+                              children: [
+                                Text(
+                                  'This card displays a profile image.',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class ProfilesAnimated extends StatefulWidget {
+  const ProfilesAnimated({Key? key}) : super(key: key);
+
+  @override
+  State<ProfilesAnimated> createState() => _ModuleCardState1();
+}
+
+class _ModuleCardState1 extends State<ProfilesAnimated>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 500),
+    );
+
+    _animation = Tween<double>(begin: 0, end: 1).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Curves.easeInOut,
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _startAnimation() {
+    _controller.reset();
+    _controller.forward();
+  }
+
+  void _reverseAnimation() {
+    _controller.reverse();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: MouseRegion(
+          onEnter: (event) {
+            _startAnimation();
+          },
+          onExit: ((event) {
+            _reverseAnimation();
+          }),
+          child: Stack(
+            clipBehavior: Clip.none,
+            children: [
+              Container(
+                height: 280.0,
+                width: 250.0,
+                decoration: BoxDecoration(
+                  color: Colors.brown[300],
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
+                child: Center(
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                      RandomAvatar('sadsasonz', height: 40, width: 40),
+                      RandomAvatar('sadsadfsasonz', height: 40, width: 40),
+                      RandomAvatar('sadsdagsasonz', height: 40, width: 40),
+                      RandomAvatar('sadsasosadfnz', height: 40, width: 40)
+                    ])),
+              ),
+              AnimatedBuilder(
+                animation: _animation,
+                builder: (BuildContext context, Widget? child) {
+                  return FractionallySizedBox(
+                    widthFactor: _animation.value,
+                    heightFactor: _animation.value,
+                    alignment: Alignment.center,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20.0),
+                      child: Container(
+                        color: Colors.white,
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    child: Container(
+                                      child: RandomAvatar('sadsasonz',
+                                          height: 40, width: 40),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: Container(
+                                      child: RandomAvatar('sadsadfsasonz',
+                                          height: 40, width: 40),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Expanded(
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    child: Container(
+                                      child: RandomAvatar('sadsdagsasonz',
+                                          height: 40, width: 40),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: Container(
+                                      child: RandomAvatar('sadsdafgaasonz',
+                                          height: 40, width: 40),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -24,6 +24,7 @@ dependencies:
   firebase_core: ^2.14.0
   flutter_inappwebview: ^5.7.2+3
   flutter_dotenv: ^5.1.0
+  flutter_glow: ^0.3.0
   
   # g
   glassy: ^0.0.6
@@ -43,7 +44,7 @@ dependencies:
   # u
   url_launcher: ^6.1.11
   
-  flutter_glow: ^0.3.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
