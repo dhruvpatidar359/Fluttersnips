@@ -231,7 +231,7 @@ class StarClipper extends CustomClipper<Path> {
 ''',
       "Shapes",
       FourPointedStar(),
-      "Star Shape using Canvas"),
+      "Star Shape"),
   CardModel(
       "avinashjindal7866@gmail.com",
       '''class SixPointedStar extends StatelessWidget {
@@ -297,7 +297,7 @@ class StarClipper extends CustomClipper<Path> {
 ''',
       "Shapes",
       SixPointedStar(),
-      "Six-Ponted Star Shape using Canvas"),
+      "Six-Ponted Star Shape"),
   CardModel(
       "avinashjindal7866@gmail.com",
       '''class TenPointedStar extends StatelessWidget {
@@ -363,7 +363,7 @@ class StarClipper extends CustomClipper<Path> {
 ''',
       "Shapes",
       TenPointedStar(),
-      "Ten-Ponted Star Shape using Canvas"),
+      "Ten-Ponted Star Shape"),
   CardModel(
       "avinashjindal7866@gmail.com",
       '''class TwentyPointedStar extends StatelessWidget {
@@ -429,5 +429,5 @@ class StarClipper extends CustomClipper<Path> {
 ''',
       "Shapes",
       TwentyPointedStar(),
-      "Twenty-Ponted Star Shape using Canvas"),
+      "Twenty-Ponted Star Shape"),
 ];
