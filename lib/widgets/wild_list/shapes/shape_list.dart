@@ -165,4 +165,269 @@ class DrawHexagon extends CustomClipper<Path> {
       "Shapes",
       HexagonShape(),
       "Hexagon Shape using Canvas"),
+
+  CardModel(
+      "avinashjindal7866@gmail.com",
+      '''class FourPointedStar extends StatelessWidget {
+  const FourPointedStar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: ClipPath(
+        clipper: StarClipper(5),
+        child: Container(
+          
+          width: 300,
+          height: 300,
+          color: Colors.green,
+        ),
+      ),
+    );
+  }
+}
+
+
+class StarClipper extends CustomClipper<Path> {
+  /// The number of points of the star
+  final int points;
+  StarClipper(this.points);
+
+  // Degrees to radians conversion
+  double _degreeToRadian(double deg) => deg * (math.pi / 180.0);
+
+  @override
+  Path getClip(Size size) {
+    Path path = Path();
+    double max = 2 * math.pi;
+
+    double width = size.width;
+    double halfWidth = width / 2;
+
+    double wingRadius = halfWidth;
+    double radius = halfWidth / 2;
+
+    double degreesPerStep = _degreeToRadian(360 / points);
+    double halfDegreesPerStep = degreesPerStep / 2;
+
+    path.moveTo(width, halfWidth);
+
+    for (double step = 0; step < max; step += degreesPerStep) {
+      path.lineTo(halfWidth + wingRadius * math.cos(step), halfWidth + wingRadius * math.sin(step));
+      path.lineTo(halfWidth + radius * math.cos(step + halfDegreesPerStep), halfWidth + radius * math.sin(step + halfDegreesPerStep));
+    }
+
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    StarClipper starClipper = oldClipper as StarClipper;
+    return points != starClipper.points;
+  }
+}
+
+''',
+      "Shapes",
+      FourPointedStar(),
+      "Star Shape using Canvas"),
+  CardModel(
+      "avinashjindal7866@gmail.com",
+      '''class SixPointedStar extends StatelessWidget {
+  const SixPointedStar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: ClipPath(
+        clipper: StarClipper(6),
+        child: Container(
+          
+          width: 300,
+          height: 300,
+          color: Colors.green,
+        ),
+      ),
+    );
+  }
+}
+
+
+class StarClipper extends CustomClipper<Path> {
+  /// The number of points of the star
+  final int points;
+  StarClipper(this.points);
+
+  // Degrees to radians conversion
+  double _degreeToRadian(double deg) => deg * (math.pi / 180.0);
+
+  @override
+  Path getClip(Size size) {
+    Path path = Path();
+    double max = 2 * math.pi;
+
+    double width = size.width;
+    double halfWidth = width / 2;
+
+    double wingRadius = halfWidth;
+    double radius = halfWidth / 2;
+
+    double degreesPerStep = _degreeToRadian(360 / points);
+    double halfDegreesPerStep = degreesPerStep / 2;
+
+    path.moveTo(width, halfWidth);
+
+    for (double step = 0; step < max; step += degreesPerStep) {
+      path.lineTo(halfWidth + wingRadius * math.cos(step), halfWidth + wingRadius * math.sin(step));
+      path.lineTo(halfWidth + radius * math.cos(step + halfDegreesPerStep), halfWidth + radius * math.sin(step + halfDegreesPerStep));
+    }
+
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    StarClipper starClipper = oldClipper as StarClipper;
+    return points != starClipper.points;
+  }
+}
+
+''',
+      "Shapes",
+      SixPointedStar(),
+      "Six-Ponted Star Shape using Canvas"),
+  CardModel(
+      "avinashjindal7866@gmail.com",
+      '''class TenPointedStar extends StatelessWidget {
+  const TenPointedStar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: ClipPath(
+        clipper: StarClipper(10),
+        child: Container(
+          
+          width: 300,
+          height: 300,
+          color: Colors.green,
+        ),
+      ),
+    );
+  }
+}
+
+
+class StarClipper extends CustomClipper<Path> {
+  /// The number of points of the star
+  final int points;
+  StarClipper(this.points);
+
+  // Degrees to radians conversion
+  double _degreeToRadian(double deg) => deg * (math.pi / 180.0);
+
+  @override
+  Path getClip(Size size) {
+    Path path = Path();
+    double max = 2 * math.pi;
+
+    double width = size.width;
+    double halfWidth = width / 2;
+
+    double wingRadius = halfWidth;
+    double radius = halfWidth / 2;
+
+    double degreesPerStep = _degreeToRadian(360 / points);
+    double halfDegreesPerStep = degreesPerStep / 2;
+
+    path.moveTo(width, halfWidth);
+
+    for (double step = 0; step < max; step += degreesPerStep) {
+      path.lineTo(halfWidth + wingRadius * math.cos(step), halfWidth + wingRadius * math.sin(step));
+      path.lineTo(halfWidth + radius * math.cos(step + halfDegreesPerStep), halfWidth + radius * math.sin(step + halfDegreesPerStep));
+    }
+
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    StarClipper starClipper = oldClipper as StarClipper;
+    return points != starClipper.points;
+  }
+}
+
+''',
+      "Shapes",
+      TenPointedStar(),
+      "Ten-Ponted Star Shape using Canvas"),
+  CardModel(
+      "avinashjindal7866@gmail.com",
+      '''class TwentyPointedStar extends StatelessWidget {
+  const TwentyPointedStar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: ClipPath(
+        clipper: StarClipper(20),
+        child: Container(
+          
+          width: 300,
+          height: 300,
+          color: Colors.green,
+        ),
+      ),
+    );
+  }
+}
+
+
+class StarClipper extends CustomClipper<Path> {
+  /// The number of points of the star
+  final int points;
+  StarClipper(this.points);
+
+  // Degrees to radians conversion
+  double _degreeToRadian(double deg) => deg * (math.pi / 180.0);
+
+  @override
+  Path getClip(Size size) {
+    Path path = Path();
+    double max = 2 * math.pi;
+
+    double width = size.width;
+    double halfWidth = width / 2;
+
+    double wingRadius = halfWidth;
+    double radius = halfWidth / 2;
+
+    double degreesPerStep = _degreeToRadian(360 / points);
+    double halfDegreesPerStep = degreesPerStep / 2;
+
+    path.moveTo(width, halfWidth);
+
+    for (double step = 0; step < max; step += degreesPerStep) {
+      path.lineTo(halfWidth + wingRadius * math.cos(step), halfWidth + wingRadius * math.sin(step));
+      path.lineTo(halfWidth + radius * math.cos(step + halfDegreesPerStep), halfWidth + radius * math.sin(step + halfDegreesPerStep));
+    }
+
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    StarClipper starClipper = oldClipper as StarClipper;
+    return points != starClipper.points;
+  }
+}
+
+''',
+      "Shapes",
+      TwentyPointedStar(),
+      "Twenty-Ponted Star Shape using Canvas"),
 ];
