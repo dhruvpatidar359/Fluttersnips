@@ -17,5 +17,4 @@ export 'package:fluttersnips/widgets/side_menu_tile.dart';
 export 'package:fluttersnips/widgets/no_results_found_for_query.dart';
 export 'package:fluttersnips/services/datafetch/firebase_repository.dart';
 export 'package:fluttersnips/screens/showcase_content/presentation/showcase_content.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 

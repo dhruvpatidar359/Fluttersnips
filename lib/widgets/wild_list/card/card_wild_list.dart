@@ -1059,7 +1059,7 @@ class _SearchCardState extends State<SearchCard> {
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(10.0),
                           ),
-                          child: Icon(
+                          child: const Icon(
                             Icons.search,
                             size: 80.0,
                             color: Colors.grey,
@@ -1165,7 +1165,7 @@ class _ProfileCardState extends State<ProfileCard> {
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(10.0),
                           ),
-                          child: CircleAvatar(
+                          child: const CircleAvatar(
                             radius: 70.0,
                             backgroundImage: AssetImage('assets/profile.jpg'),
                           ),
@@ -1348,3 +1348,6 @@ class _ModuleCardState1 extends State<ProfilesAnimated>
     );
   }
 }
+
+
+

@@ -45,10 +45,10 @@ class _LayoutOneState extends State<LayoutOne> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF111320),
+      backgroundColor: const Color(0xFF111320),
       appBar: AppBar(
-        backgroundColor: Color(0xFF1D1E33),
-        title: Text(
+        backgroundColor: const Color(0xFF1D1E33),
+        title: const Text(
           'Layout 1',
         ),
         centerTitle: true,
@@ -68,7 +68,7 @@ class _LayoutOneState extends State<LayoutOne> {
                     child: ReusableCard(
                       //colour: Color(0xFF1D1E33),
                       colour: maleCardColor,
-                      cardChild: Column(
+                      cardChild: const Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Icon(
@@ -100,7 +100,7 @@ class _LayoutOneState extends State<LayoutOne> {
                     child: ReusableCard(
                       //colour: Color(0xFF1D1E33),
                       colour: femaleCardColor,
-                      cardChild: Column(
+                      cardChild: const Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Icon(
@@ -127,11 +127,11 @@ class _LayoutOneState extends State<LayoutOne> {
           ),
           Expanded(
             child: ReusableCard(
-              colour: Color(0xFF1D1E33),
+              colour: const Color(0xFF1D1E33),
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text(
+                  const Text(
                     'HEIGHT',
                     style: TextStyle(
                       fontSize: 25,
@@ -145,12 +145,12 @@ class _LayoutOneState extends State<LayoutOne> {
                     children: <Widget>[
                       Text(
                         height.toString(),
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 50,
                         ),
                       ),
-                      Text(
+                      const Text(
                         'cm',
                         style: TextStyle(
                           color: Colors.white,
@@ -163,8 +163,8 @@ class _LayoutOneState extends State<LayoutOne> {
                     value: height.toDouble(),
                     min: 100.0,
                     max: 300.0,
-                    activeColor: Color(0xFFEB1555),
-                    inactiveColor: Color(0xFF8D8E98),
+                    activeColor: const Color(0xFFEB1555),
+                    inactiveColor: const Color(0xFF8D8E98),
                     onChanged: (double newValue) {
                       setState(() {
                         height = newValue.round();
@@ -180,11 +180,11 @@ class _LayoutOneState extends State<LayoutOne> {
               children: <Widget>[
                 Expanded(
                   child: ReusableCard(
-                    colour: Color(0xFF1D1E33),
+                    colour: const Color(0xFF1D1E33),
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Text(
+                        const Text(
                           'WEIGHT',
                           style: TextStyle(
                             fontSize: 18,
@@ -198,12 +198,12 @@ class _LayoutOneState extends State<LayoutOne> {
                           children: <Widget>[
                             Text(
                               weight.toString(),
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 50,
                                 color: Colors.white,
                               ),
                             ),
-                            Text(
+                            const Text(
                               'KG',
                               style: TextStyle(
                                 fontSize: 18,
@@ -212,35 +212,35 @@ class _LayoutOneState extends State<LayoutOne> {
                             )
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             FloatingActionButton(
-                              backgroundColor: Color(0xFF4C4F5E),
+                              backgroundColor: const Color(0xFF4C4F5E),
                               onPressed: () {
                                 setState(() {
                                   weight = weight - 1;
                                 });
                               },
-                              child: Icon(
+                              child: const Icon(
                                 Icons.minimize,
                                 color: Colors.white,
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 10,
                             ),
                             FloatingActionButton(
-                              backgroundColor: Color(0xFF4C4F5E),
+                              backgroundColor: const Color(0xFF4C4F5E),
                               onPressed: () {
                                 setState(() {
                                   weight = weight + 1;
                                 });
                               },
-                              child: Icon(
+                              child: const Icon(
                                 Icons.add,
                                 color: Colors.white,
                               ),
@@ -253,11 +253,11 @@ class _LayoutOneState extends State<LayoutOne> {
                 ),
                 Expanded(
                   child: ReusableCard(
-                    colour: Color(0xFF1D1E33),
+                    colour: const Color(0xFF1D1E33),
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Text(
+                        const Text(
                           'AGE',
                           style: TextStyle(
                             fontSize: 18,
@@ -271,12 +271,12 @@ class _LayoutOneState extends State<LayoutOne> {
                           children: <Widget>[
                             Text(
                               age.toString(),
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 50,
                                 color: Colors.white,
                               ),
                             ),
-                            Text(
+                            const Text(
                               'Years',
                               style: TextStyle(
                                 fontSize: 18,
@@ -285,35 +285,35 @@ class _LayoutOneState extends State<LayoutOne> {
                             )
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             FloatingActionButton(
-                              backgroundColor: Color(0xFF4C4F5E),
+                              backgroundColor: const Color(0xFF4C4F5E),
                               onPressed: () {
                                 setState(() {
                                   age = age - 1;
                                 });
                               },
-                              child: Icon(
+                              child: const Icon(
                                 Icons.minimize,
                                 color: Colors.white,
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 10,
                             ),
                             FloatingActionButton(
-                              backgroundColor: Color(0xFF4C4F5E),
+                              backgroundColor: const Color(0xFF4C4F5E),
                               onPressed: () {
                                 setState(() {
                                   age = age + 1;
                                 });
                               },
-                              child: Icon(
+                              child: const Icon(
                                 Icons.add,
                                 color: Colors.white,
                               ),
@@ -332,11 +332,11 @@ class _LayoutOneState extends State<LayoutOne> {
               // Calculate Button
             },
             child: Container(
-              color: Color(0xFFEB1555),
-              margin: EdgeInsets.only(top: 10),
+              color: const Color(0xFFEB1555),
+              margin: const EdgeInsets.only(top: 10),
               width: double.infinity,
               height: bottomContainerHeight,
-              child: Center(
+              child: const Center(
                 child: Text(
                   'CALCULATE',
                   style: TextStyle(
@@ -354,7 +354,7 @@ class _LayoutOneState extends State<LayoutOne> {
 }
 
 class ReusableCard extends StatelessWidget {
-  ReusableCard({required this.colour, required this.cardChild});
+  const ReusableCard({super.key, required this.colour, required this.cardChild});
 
   final Color colour;
   final Widget cardChild;
@@ -362,12 +362,12 @@ class ReusableCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: cardChild,
-      margin: EdgeInsets.all(15),
+      margin: const EdgeInsets.all(15),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: colour,
       ),
+      child: cardChild,
     );
   }
 }
@@ -393,9 +393,9 @@ class _LoginPageState extends State<LoginPage> {
             children: <Widget>[
               Container(
                 height: 400,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage('../images/background.png'),
+                    image: AssetImage('/images/background.png'),
                     fit: BoxFit.fill,
                   ),
                 ),
@@ -406,9 +406,9 @@ class _LoginPageState extends State<LoginPage> {
                         width: 80,
                         height: 200,
                         child: Container(
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             image: DecorationImage(
-                              image: AssetImage('../images/light-1.png'),
+                              image: AssetImage('/images/light-1.png'),
                             ),
                           ),
                         )),
@@ -417,9 +417,9 @@ class _LoginPageState extends State<LoginPage> {
                       width: 80,
                       height: 150,
                       child: Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           image: DecorationImage(
-                            image: AssetImage('../images/light-2.png'),
+                            image: AssetImage('/images/light-2.png'),
                           ),
                         ),
                       ),
@@ -430,17 +430,17 @@ class _LoginPageState extends State<LoginPage> {
                       width: 80,
                       height: 150,
                       child: Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           image: DecorationImage(
-                            image: AssetImage('../images/clock.png'),
+                            image: AssetImage('/images/clock.png'),
                           ),
                         ),
                       ),
                     ),
                     Positioned(
                       child: Container(
-                        margin: EdgeInsets.only(top: 50),
-                        child: Center(
+                        margin: const EdgeInsets.only(top: 50),
+                        child: const Center(
                           child: Text(
                             'Login',
                             style: TextStyle(
@@ -456,15 +456,15 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(30.0),
+                padding: const EdgeInsets.all(30.0),
                 child: Column(
                   children: <Widget>[
                     Container(
-                      padding: EdgeInsets.all(5.0),
+                      padding: const EdgeInsets.all(5.0),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
+                        boxShadow: const [
                           BoxShadow(
                             color: Color.fromRGBO(143, 148, 251, 1),
                             blurRadius: 20.0,
@@ -475,13 +475,13 @@ class _LoginPageState extends State<LoginPage> {
                       child: Column(
                         children: <Widget>[
                           Container(
-                            padding: EdgeInsets.all(8.0),
-                            decoration: BoxDecoration(
+                            padding: const EdgeInsets.all(8.0),
+                            decoration: const BoxDecoration(
                               border: Border(
                                   bottom: BorderSide(color: Colors.grey)),
                             ),
                             child: TextField(
-                              style: TextStyle(color: Colors.black),
+                              style: const TextStyle(color: Colors.black),
                               keyboardType: TextInputType.emailAddress,
                               textAlign: TextAlign.center,
                               decoration: InputDecoration(
@@ -494,13 +494,13 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ),
                           Container(
-                            padding: EdgeInsets.all(8.0),
-                            decoration: BoxDecoration(
+                            padding: const EdgeInsets.all(8.0),
+                            decoration: const BoxDecoration(
                               border: Border(
                                   bottom: BorderSide(color: Colors.grey)),
                             ),
                             child: TextField(
-                              style: TextStyle(color: Colors.black),
+                              style: const TextStyle(color: Colors.black),
                               obscureText: true,
                               textAlign: TextAlign.center,
                               decoration: InputDecoration(
@@ -512,22 +512,22 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 50,
                     ),
                     Container(
                       width: double.infinity,
                       height: 50,
-                      margin: EdgeInsets.symmetric(horizontal: 20),
+                      margin: const EdgeInsets.symmetric(horizontal: 20),
                       child: ElevatedButton(
                         onPressed: () {},
-                        style: ButtonStyle(
+                        style: const ButtonStyle(
                             backgroundColor: MaterialStatePropertyAll(
                               Color.fromRGBO(143, 148, 251, 2),
                             ),
@@ -538,7 +538,7 @@ class _LoginPageState extends State<LoginPage> {
                                     BorderRadius.all(Radius.circular(20.0)),
                               ),
                             )),
-                        child: Text(
+                        child: const Text(
                           'Login',
                           style: TextStyle(
                             fontSize: 20,
@@ -549,19 +549,19 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 70,
                     ),
-                    Text(
+                    const Text(
                       'Forgot Password?',
                       style: TextStyle(
                         color: Color.fromRGBO(143, 148, 251, 1),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
-                    Text(
+                    const Text(
                       'Register',
                       style: TextStyle(
                         color: Color.fromRGBO(143, 148, 251, 1),
@@ -577,3 +577,5 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
+
+

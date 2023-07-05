@@ -72,12 +72,14 @@ Widget companyLogo() {
 }
 
 class Navbar1 extends StatelessWidget {
+  const Navbar1({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.red,
       height: 50,
-      child: Row(
+      child: const Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Text(
@@ -103,12 +105,14 @@ class Navbar1 extends StatelessWidget {
 }
 
 class Navbar2 extends StatelessWidget {
+  const Navbar2({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.blue,
       height: 50,
-      child: Row(
+      child: const Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Icon(
@@ -138,6 +142,8 @@ class Navbar2 extends StatelessWidget {
 }
 
 class Navbar3 extends StatelessWidget {
+  const Navbar3({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -146,11 +152,11 @@ class Navbar3 extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Text(
+          const Text(
             'Home',
             style: TextStyle(color: Colors.white),
           ),
-          Text(
+          const Text(
             'Features',
             style: TextStyle(color: Colors.white),
           ),
@@ -163,17 +169,17 @@ class Navbar3 extends StatelessWidget {
                 .toList(),
             onChanged: (value) {},
             underline: Container(),
-            icon: Icon(
+            icon: const Icon(
               Icons.arrow_drop_down,
               color: Colors.white,
             ),
-            style: TextStyle(color: Colors.white),
-            hint: Text(
+            style: const TextStyle(color: Colors.white),
+            hint: const Text(
               'Select',
               style: TextStyle(color: Colors.white),
             ),
           ),
-          Text(
+          const Text(
             'Contact',
             style: TextStyle(color: Colors.white),
           ),
@@ -184,6 +190,8 @@ class Navbar3 extends StatelessWidget {
 }
 
 class Navbar4 extends StatefulWidget {
+  const Navbar4({super.key});
+
   @override
   _Navbar4State createState() => _Navbar4State();
 }
@@ -208,7 +216,7 @@ class _Navbar4State extends State<Navbar4> {
               });
             },
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
               child: Row(
                 children: [
                   Expanded(
@@ -223,15 +231,15 @@ class _Navbar4State extends State<Navbar4> {
                         children: [
                           IconButton(
                             onPressed: () {},
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.search,
                               color: Colors.white,
                             ),
                           ),
-                          Expanded(
+                          const Expanded(
                             child: Center(
                               child: Padding(
-                                padding: const EdgeInsets.fromLTRB(0, 0, 0, 4),
+                                padding: EdgeInsets.fromLTRB(0, 0, 0, 4),
                                 child: TextField(
                                   style: TextStyle(color: Colors.white),
                                   decoration: InputDecoration(
@@ -247,19 +255,19 @@ class _Navbar4State extends State<Navbar4> {
                       ),
                     ),
                   ),
-                  SizedBox(width: 8.0),
-                  CircleAvatar(
+                  const SizedBox(width: 8.0),
+                  const CircleAvatar(
                     backgroundColor: Colors.amber,
                   ),
-                  SizedBox(width: 8.0),
+                  const SizedBox(width: 8.0),
                   ElevatedButton(
                     onPressed: () {},
-                    child: Text('Settings'),
+                    child: const Text('Settings'),
                   ),
-                  SizedBox(width: 8.0),
+                  const SizedBox(width: 8.0),
                   ElevatedButton(
                     onPressed: () {},
-                    child: Text('Logout'),
+                    child: const Text('Logout'),
                   ),
                 ],
               ),
@@ -272,11 +280,11 @@ class _Navbar4State extends State<Navbar4> {
               height: 0.0,
             ),
             Container(
-              padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+              padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     'Options',
                     style: TextStyle(
                       color: Colors.white,
@@ -284,22 +292,22 @@ class _Navbar4State extends State<Navbar4> {
                       fontSize: 16.0,
                     ),
                   ),
-                  SizedBox(height: 8.0),
+                  const SizedBox(height: 8.0),
                   ListTile(
-                    leading: Icon(Icons.star, color: Colors.white),
-                    title: Text('Favorites',
+                    leading: const Icon(Icons.star, color: Colors.white),
+                    title: const Text('Favorites',
                         style: TextStyle(color: Colors.white)),
                     onTap: () {},
                   ),
                   ListTile(
-                    leading: Icon(Icons.history, color: Colors.white),
+                    leading: const Icon(Icons.history, color: Colors.white),
                     title:
-                        Text('History', style: TextStyle(color: Colors.white)),
+                        const Text('History', style: TextStyle(color: Colors.white)),
                     onTap: () {},
                   ),
                   ListTile(
-                    leading: Icon(Icons.settings, color: Colors.white),
-                    title: Text('App Settings',
+                    leading: const Icon(Icons.settings, color: Colors.white),
+                    title: const Text('App Settings',
                         style: TextStyle(color: Colors.white)),
                     onTap: () {},
                   ),

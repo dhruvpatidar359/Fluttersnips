@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:fluttersnips/models/card_model.dart';
 import 'layout_wild_list.dart';
 

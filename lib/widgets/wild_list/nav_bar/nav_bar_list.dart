@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 
 import '../../../models/card_model.dart';
 import 'nav_bar_wild_list.dart';
@@ -87,7 +86,7 @@ Widget companyLogo() {
     Navbar0(),
     "Glow NavBar",
   ),
-  CardModel(
+  const CardModel(
     "avinashjindal7866@gmail.com",
     '''
 import 'package:flutter/material.dart';
@@ -127,7 +126,7 @@ class NavbarWidget1 extends StatelessWidget {
     Navbar1(),
     "Simple navigation bar with red background",
   ),
-  CardModel(
+  const CardModel(
     "avinashjindal7866@gmail.com",
     '''
 import 'package:flutter/material.dart';
@@ -171,7 +170,7 @@ class NavbarWidget2 extends StatelessWidget {
     Navbar2(),
     "Navigation bar with a menu icon and blue background",
   ),
-  CardModel(
+  const CardModel(
     "avinashjindal7866@gmail.com",
     '''
 import 'package:flutter/material.dart';
@@ -226,7 +225,7 @@ class NavbarWidget4 extends StatelessWidget {
     Navbar3(),
     "Navigation bar with dropdown button and orange background",
   ),
-  CardModel(
+  const CardModel(
       'dhruvpatidar35@gmail.com',
       '''
 class NavbarWidget extends StatefulWidget {
