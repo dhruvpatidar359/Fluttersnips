@@ -395,7 +395,7 @@ class _LoginPageState extends State<LoginPage> {
                 height: 400,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage('/images/background.png'),
+                    image: AssetImage('assets/images/background.png'),
                     fit: BoxFit.fill,
                   ),
                 ),
@@ -408,7 +408,7 @@ class _LoginPageState extends State<LoginPage> {
                         child: Container(
                           decoration: const BoxDecoration(
                             image: DecorationImage(
-                              image: AssetImage('/images/light-1.png'),
+                              image: AssetImage('assets/images/light-1.png'),
                             ),
                           ),
                         )),
@@ -419,7 +419,7 @@ class _LoginPageState extends State<LoginPage> {
                       child: Container(
                         decoration: const BoxDecoration(
                           image: DecorationImage(
-                            image: AssetImage('/images/light-2.png'),
+                            image: AssetImage('assets/images/light-2.png'),
                           ),
                         ),
                       ),
@@ -432,7 +432,7 @@ class _LoginPageState extends State<LoginPage> {
                       child: Container(
                         decoration: const BoxDecoration(
                           image: DecorationImage(
-                            image: AssetImage('/images/clock.png'),
+                            image: AssetImage('assets/images/clock.png'),
                           ),
                         ),
                       ),
