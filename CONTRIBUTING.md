@@ -26,16 +26,16 @@ Thank you for considering contributing to Fluttersnips! We welcome contributions
 
 Before contributing, make sure you have [Flutter](https://flutter.dev/docs/get-started/install) and [Dart](https://dart.dev/get-dart) installed on your system.
 
-## Get Started With Development
+## Development Setup
 
 Go through ReadMe you will get to know about every thing.
 
 You're ready to start coding! Make your changes in the relevant files.
 
-Creating Issues
+## Creating Issues
 If you find a bug, have a feature request, or want to suggest an improvement, please create an issue on GitHub. When creating an issue, please provide detailed information about the problem or suggestion.
 
-Making Pull Requests
+## Making Pull Requests
 When submitting a pull request:
 
 Make sure your code is well-tested and follows the project's code style.
@@ -45,7 +45,7 @@ If your PR fixes an issue, reference the issue in the description.
 Code Style
 Please follow the Flutter and Dart code style guidelines. Use consistent indentation, meaningful variable names, and comment your code as needed for clarity.
 
-License
+## License
 By contributing to Fluttersnips, you agree that your contributions will be licensed under the MIT License.
 
 Happy coding, and thank you for contributing to Fluttersnips!
