@@ -9,7 +9,6 @@ Thank you for considering contributing to Fluttersnips! We welcome contributions
 - [Development Setup](#development-setup)
 - [Creating Issues](#creating-issues)
 - [Making Pull Requests](#making-pull-requests)
-- [Code Style](#code-style)
 - [License](#license)
 
 ## How to Contribute
@@ -28,7 +27,7 @@ Before contributing, make sure you have [Flutter](https://flutter.dev/docs/get-s
 
 ## Development Setup
 
-Go through ReadMe you will get to know about every thing.
+Go through  [ReadMe](https://fluttersnips.vercel.app/) you will get to know about every thing.
 
 You're ready to start coding! Make your changes in the relevant files.
 
