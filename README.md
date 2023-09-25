@@ -26,16 +26,7 @@ This platform is created , so as to make a huge library of already builded code 
 ![FlutterSnips](https://github.com/dhruvpatidar359/Fluttersnips/assets/103873587/64ef0bdd-4a28-4d67-9b63-53f0bad5c58c)
 
 
-<!-------------Swags------------------------->
-
-<p align="center">
-
-<img src="https://forthebadge.com/images/badges/built-with-love.svg" alt=" forks"/>
-
-</p>
-
-
- ## [LIVE LINK](fluttersnips.vercel.app) 
+ ## [LIVE LINK](https://fluttersnips.vercel.app/) 
  
 ![image](https://github.com/dhruvpatidar359/Fluttersnips/assets/103873587/7142a96f-c654-4836-a726-42665e81457c)  
 
