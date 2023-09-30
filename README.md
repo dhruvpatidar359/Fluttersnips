@@ -1,5 +1,10 @@
 ## FlutterSnips.♥
 
+## HACKTOBERFEST ♥♥ This year we are opening this repo for hacktoberfest contributions.  
+Have fun contributing . Please read the Conrtibuting.md file.  
+![hf10_banner_sponsors_1032x600](https://github.com/dhruvpatidar359/Fluttersnips/assets/103873587/33024939-f469-4c22-86f7-acba4d5bc697)
+
+
 ## AIM :
 This platform is created , so as to make a huge library of already builded code , that developers can directly use in their flutter project.
 - It will decrease the time to build the projects
