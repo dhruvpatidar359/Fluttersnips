@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:fluttersnips/widgets/main_view.dart';
+import 'package:fluttersnips/widgets/nav_bar/presentation/nav_bar.dart';
 import 'package:fluttersnips/widgets/side_bar.dart';
 
 class Showcase extends StatelessWidget {
-  const Showcase({super.key});
+  final Widget child;
+  const Showcase({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Row(
         children: [
-          Expanded(child: SideBar()),
-          Expanded(flex: 4, child: MainView()),
+          const Expanded(child: SideBar()),
+          Expanded(
+            flex: 4,
+            child: Stack(children: [child, const NavBar()]),
+          ),
         ],
       ),
     );

@@ -6,13 +6,13 @@ class NoResultsFoundForQuery extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final query = context.watch<SearchProvider>().query;
-
     return Center(
-      child: Text(
-        "No results found for '$query'",
-        style: GoogleFonts.poppins(fontSize: 15, color: Colors.grey),
-      ),
+      child: Obx(() {
+        return Text(
+          "No results found for '${searchProvider.query}'",
+          style: GoogleFonts.poppins(fontSize: 15, color: Colors.grey),
+        );
+      }),
     );
   }
 }

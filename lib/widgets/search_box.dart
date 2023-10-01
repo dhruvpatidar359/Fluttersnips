@@ -12,14 +12,6 @@ class SearchBox extends StatefulWidget {
 class _SearchBoxState extends State<SearchBox> {
   final TextEditingController _searchController = TextEditingController();
 
-  late final SearchProvider searchProvider;
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    searchProvider = Provider.of<SearchProvider>(context, listen: false);
-  }
-
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -29,7 +21,7 @@ class _SearchBoxState extends State<SearchBox> {
         controller: _searchController,
         style: GoogleFonts.poppins(fontSize: 15),
         onChanged: (value) {
-          searchProvider.query = value;
+          searchProvider.query.value = value;
           initiateSearch();
         },
         decoration: InputDecoration(

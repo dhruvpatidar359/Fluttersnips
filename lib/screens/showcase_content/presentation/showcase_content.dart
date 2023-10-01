@@ -6,7 +6,7 @@ import 'package:fluttersnips/shared/exports.dart';
 import 'package:selectable_code_view/selectable_code_view.dart';
 
 class ShowCaseContent extends StatefulWidget {
-  final List<CardModel> data;
+  final List data;
   final int crossAxisCount;
 
   const ShowCaseContent(
@@ -18,7 +18,7 @@ class ShowCaseContent extends StatefulWidget {
 }
 
 class _ShowCaseContentState extends State<ShowCaseContent> {
-  List<CardModel> filteredList = [];
+  List filteredList = [];
 
   @override
   void initState() {
