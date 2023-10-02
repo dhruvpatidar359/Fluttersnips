@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttersnips/constants/app_colors.dart';
-import 'package:fluttersnips/screens/ShowCase/presentation/ShowCase.dart';
+import 'package:fluttersnips/router.dart';
 import 'package:fluttersnips/shared/exports.dart';
 
 class App extends StatelessWidget {
@@ -10,19 +10,19 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => SearchProvider()),
-        ChangeNotifierProvider(create: (context) => SideBarProvider()),
+        ChangeNotifierProvider(create: (context) => SearchController()),
       ],
-      child: MaterialApp(
+      child: MaterialApp.router(
         title: 'FlutterSnips',
-        home: const Showcase(),
+        routerConfig: router,
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primaryColor: primaryColor,
           colorScheme: const ColorScheme.dark(
-              background: Colors.black,
-              primary: primaryColor,
-              onPrimary: Colors.white),
+            background: Colors.black,
+            primary: primaryColor,
+            onPrimary: Colors.white,
+          ),
           useMaterial3: true,
         ),
       ),

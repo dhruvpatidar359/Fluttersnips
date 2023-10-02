@@ -4,7 +4,7 @@ import 'package:fluttersnips/shared/exports.dart';
 class BodyContent extends StatelessWidget {
   final int tabIndex;
   final int gridCrossAxisCount;
-  final List<CardModel> data;
+  final List data;
   const BodyContent({
     super.key,
     required this.tabIndex,
@@ -14,21 +14,21 @@ class BodyContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer2<SideBarProvider, SearchProvider>(
-      builder: (context, sideBarValue, searchValue, child) {
-        List<CardModel> data;
+    return Obx(() {
+      List data;
 
-        if (sideBarValue.currentTab == tabIndex && searchValue.query.isEmpty) {
-          data = this.data;
-        } else {
-          data = searchValue.filteredIndex;
-        }
+      if (sideBarProvider.currentTab.value == tabIndex &&
+          searchProvider.query.isEmpty) {
+        data = this.data;
+      } else {
+        data = searchProvider.filteredIndex;
+      }
 
-        if (searchValue.filteredIndex.isEmpty) {
-          return const NoResultsFoundForQuery();
-        }
-        return ShowCaseContent(crossAxisCount: gridCrossAxisCount, data: data);
-      },
-    );
+      if (searchProvider.filteredIndex.isEmpty) {
+        return const NoResultsFoundForQuery();
+      }
+
+      return ShowCaseContent(crossAxisCount: gridCrossAxisCount, data: data);
+    });
   }
 }
