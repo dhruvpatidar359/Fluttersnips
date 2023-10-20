@@ -24,6 +24,7 @@ class MainView extends StatelessWidget {
               case 0:
                 return const RecentlyAdded();
 
+              // ignore: constant_pattern_never_matches_value_type
               case 1:
                 return const Cards();
 
@@ -31,7 +32,7 @@ class MainView extends StatelessWidget {
                 return const Shapes();
 
               case 3:
-                return  Navigation();
+                return Navigation();
 
               case 4:
                 return const WebView();
@@ -41,6 +42,8 @@ class MainView extends StatelessWidget {
 
               case 6:
                 return const Layouts();
+              case 7:
+                return const Buttons();
 
               default:
                 return const IntroPage();
