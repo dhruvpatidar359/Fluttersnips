@@ -1,5 +1,6 @@
 import 'package:fluttersnips/shared/exports.dart';
 import 'package:fluttersnips/widgets/wild_list/card/card_list.dart';
+import 'package:fluttersnips/widgets/wild_list/buttons/button_list.dart';
 import 'package:fluttersnips/widgets/wild_list/nav_bar/nav_bar_list.dart';
 import 'package:fluttersnips/widgets/wild_list/shapes/shape_list.dart';
 
@@ -14,6 +15,9 @@ class Utils {
         break;
       case 3:
         searchProvider.setSearchIndex(navbarListW);
+        break;
+      case 7:
+        searchProvider.setSearchIndex(buttonListW);
         break;
       default:
     }

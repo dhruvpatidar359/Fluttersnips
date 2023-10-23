@@ -13,6 +13,7 @@ class Routes {
   static const String navigation = 'navigation';
   static const String webview = 'webview';
   static const String columns = 'column';
+  static const String buttons = 'buttons';
 }
 
 final router = GoRouter(
@@ -89,6 +90,16 @@ final router = GoRouter(
             sideBarProvider.setCurrentTab(5);
             Utils.updateSearchIndex(5);
             return const NoTransitionPage(child: Column());
+          },
+        ),
+        GoRoute(
+          path: '/${Routes.buttons}',
+          name: Routes.buttons,
+          parentNavigatorKey: _shellNavigatorKey,
+          pageBuilder: (context, state) {
+            sideBarProvider.setCurrentTab(7);
+            Utils.updateSearchIndex(7);
+            return const NoTransitionPage(child: Buttons());
           },
         ),
       ],
