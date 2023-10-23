@@ -15,7 +15,11 @@ class SideBarProvider extends GetxController {
     (title: 'WebView', iconData: Icons.web),
     (title: 'Column', iconData: Icons.view_column),
 
+
     (title: 'Layout', iconData: Icons.mobile_friendly),
     (title: 'Buttons', iconData: Icons.ads_click), // pending to be added
+
+   
+
   ];
 }
