@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttersnips/shared/exports.dart';
 
 class SearchBox extends StatefulWidget {
-  const SearchBox({super.key});
+  const SearchBox({Key? key}) : super(key: key);
 
   @override
   State<SearchBox> createState() => _SearchBoxState();
@@ -27,22 +27,18 @@ class _SearchBoxState extends State<SearchBox> {
         decoration: InputDecoration(
           filled: true,
           border: InputBorder.none,
-          fillColor: const Color(0xFF202020),
+          fillColor: Color(0xFF202020),  
           hintText: 'Search',
           hintStyle: GoogleFonts.poppins(
             fontSize: 15,
-            color: const Color(0xFF838383),
+            color: Color(0xFF838383), 
           ),
-
-          // search icon
           prefixIcon: const Padding(
             padding: EdgeInsets.only(left: 4.0),
             child: Icon(CupertinoIcons.search, size: 18),
           ),
-
-          // clear button/icon
           suffixIcon: Padding(
-            padding: const EdgeInsets.only(right: 4.0),
+            padding: EdgeInsets.only(right: 4.0), 
             child: IconButton(
               iconSize: 18,
               icon: const Icon(Icons.clear),
@@ -55,4 +51,10 @@ class _SearchBoxState extends State<SearchBox> {
   }
 
   void initiateSearch() => searchProvider.search();
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
 }
