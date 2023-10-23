@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttersnips/screens/intro_page.dart';
-import 'package:fluttersnips/screens/showcase/presentation/showcase.dart';
+import 'package:fluttersnips/screens/showCase/presentation/showCase.dart';
 import 'package:fluttersnips/shared/exports.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
