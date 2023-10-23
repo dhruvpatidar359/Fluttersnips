@@ -7,22 +7,29 @@ import 'package:fluttersnips/shared/exports.dart';
 import 'package:get_it/get_it.dart';
 
 void main() async {
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  await dotenv.load(fileName: '.env');
-  await authRepositoryInstance.isLoggedIn();
-  setPathUrlStrategy();
-  registerSingletons();
-
+  await initializeApp();
   runApp(const App());
 }
 
-Future<void> registerSingletons() async {
-  GetIt.I.registerSingleton<SideBarProvider>(Get.put(SideBarProvider()));
-  GetIt.I.registerSingleton<SearchProvider>(Get.put(SearchProvider()));
+Future<void> initializeApp() async {
+  try {
+    await dotenv.load(fileName: '.env');
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+    await authRepositoryInstance.isLoggedIn();
+    setPathUrlStrategy();
+    registerSingletons();
+  } catch (e) {
+    print('Error initializing app: $e');
+  }
 }
 
-// Syntatic sugar for common state manager classes
+Future<void> registerSingletons() async {
+  GetIt.I.registerSingleton<SideBarProvider>(SideBarProvider());
+  GetIt.I.registerSingleton<SearchProvider>(SearchProvider());
+}
+
+// Syntactic sugar for common state manager classes
 SideBarProvider get sideBarProvider => GetIt.I.get<SideBarProvider>();
 SearchProvider get searchProvider => GetIt.I.get<SearchProvider>();
