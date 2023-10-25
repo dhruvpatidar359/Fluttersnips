@@ -1,12 +1,16 @@
+import 'dart:async';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:fluttersnips/firebase_options.dart';
 import 'package:fluttersnips/services/auth/auth_repository.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:fluttersnips/shared/exports.dart';
 import 'package:get_it/get_it.dart';
 
-void main() async {
+Future<void> initApp() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -14,8 +18,21 @@ void main() async {
   await authRepositoryInstance.isLoggedIn();
   setPathUrlStrategy();
   registerSingletons();
+}
 
-  runApp(const App());
+void main() async {
+  // This captures errors reported by the Flutter framework.
+  runZonedGuarded<Future<void>>(
+    () async {
+      await initApp();
+      runApp(const App());
+    },
+    (error, stack) => FirebaseCrashlytics.instance.recordError(
+      error,
+      stack,
+      fatal: true,
+    ),
+  );
 }
 
 Future<void> registerSingletons() async {

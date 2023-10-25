@@ -48,6 +48,7 @@ dependencies:
   # u
   url_launcher: ^6.1.11
   url_strategy: ^0.2.0
+  firebase_crashlytics: ^3.4.1
   
 
 dev_dependencies:
