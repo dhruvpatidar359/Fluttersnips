@@ -5,30 +5,26 @@ class BodyContent extends StatelessWidget {
   final int tabIndex;
   final int gridCrossAxisCount;
   final List data;
+
   const BodyContent({
-    super.key,
+    Key? key,
     required this.tabIndex,
     required this.gridCrossAxisCount,
     required this.data,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      List data;
+      final currentData = (sideBarProvider.currentTab.value == tabIndex && searchProvider.query.isEmpty)
+          ? data
+          : searchProvider.filteredIndex;
 
-      if (sideBarProvider.currentTab.value == tabIndex &&
-          searchProvider.query.isEmpty) {
-        data = this.data;
-      } else {
-        data = searchProvider.filteredIndex;
-      }
-
-      if (searchProvider.filteredIndex.isEmpty) {
+      if (currentData.isEmpty) {
         return const NoResultsFoundForQuery();
       }
 
-      return ShowCaseContent(crossAxisCount: gridCrossAxisCount, data: data);
+      return ShowCaseContent(crossAxisCount: gridCrossAxisCount, data: currentData);
     });
   }
 }
