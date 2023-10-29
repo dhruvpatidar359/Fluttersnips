@@ -28,7 +28,7 @@ class FirebaseRepository {
           final String classT = data['classT'] ?? '';
           final String title = data['title'] ?? '';
 
-          final CardModel card = CardModel(email, code, classT, null, title);
+          final CardModel card = CardModel(email, code, classT, null, title,);
           recents.add(card);
         }
       }

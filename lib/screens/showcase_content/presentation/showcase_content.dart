@@ -19,6 +19,7 @@ class ShowCaseContent extends StatefulWidget {
 
 class _ShowCaseContentState extends State<ShowCaseContent> {
   List filteredList = [];
+  bool like = false;
 
   @override
   void initState() {
@@ -74,13 +75,14 @@ class _ShowCaseContentState extends State<ShowCaseContent> {
                     padding: const EdgeInsets.symmetric(
                         vertical: 20, horizontal: 24),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(right: 8.0),
-                          child: Text(
-                            widget.data[index].title,
-                            style: GoogleFonts.poppins(fontSize: 15),
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 8.0),
+                            child: Text(
+                              widget.data[index].title,
+                              style: GoogleFonts.poppins(fontSize: 15),
+                            ),
                           ),
                         ),
                         ElevatedButton(
@@ -163,6 +165,12 @@ class _ShowCaseContentState extends State<ShowCaseContent> {
                               },
                             );
                           },
+                        ),
+                        const SizedBox(width: 8),
+                        //like button
+                        IconButton(
+                          onPressed: () {},
+                          icon: const Icon(Icons.thumb_up_alt_outlined),
                         ),
                       ],
                     ),
