@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttersnips/screens/cards.dart';
+import 'package:fluttersnips/screens/carousel.dart';
 import 'package:fluttersnips/screens/columns.dart';
 import 'package:fluttersnips/screens/intro_page.dart';
 import 'package:fluttersnips/screens/layouts.dart';
@@ -41,9 +42,13 @@ class MainView extends StatelessWidget {
                 return const Columns();
 
               case 6:
-                return const Layouts();
-              case 7:
                 return const Buttons();
+
+              case 7:
+                return const Layouts();
+
+              case 8:
+                return const Carousel();
 
               default:
                 return const IntroPage();
