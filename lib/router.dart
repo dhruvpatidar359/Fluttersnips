@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:fluttersnips/screens/carousel.dart';
+import 'package:fluttersnips/screens/columns.dart';
 import 'package:fluttersnips/screens/intro_page.dart';
+import 'package:fluttersnips/screens/layouts.dart';
 import 'package:fluttersnips/screens/showCase/presentation/showCase.dart';
 import 'package:fluttersnips/shared/exports.dart';
 
@@ -14,6 +17,8 @@ class Routes {
   static const String webview = 'webview';
   static const String columns = 'column';
   static const String buttons = 'buttons';
+  static const String layout = 'layout';
+  static const String carousel = 'carousel';
 }
 
 final router = GoRouter(
@@ -89,7 +94,7 @@ final router = GoRouter(
           pageBuilder: (context, state) {
             sideBarProvider.setCurrentTab(5);
             Utils.updateSearchIndex(5);
-            return const NoTransitionPage(child: Column());
+            return const NoTransitionPage(child: Columns());
           },
         ),
         GoRoute(
@@ -97,9 +102,29 @@ final router = GoRouter(
           name: Routes.buttons,
           parentNavigatorKey: _shellNavigatorKey,
           pageBuilder: (context, state) {
+            sideBarProvider.setCurrentTab(6);
+            Utils.updateSearchIndex(6);
+            return const NoTransitionPage(child: Buttons());
+          },
+        ),
+        GoRoute(
+          path: '/${Routes.layout}',
+          name: Routes.layout,
+          parentNavigatorKey: _shellNavigatorKey,
+          pageBuilder: (context, state) {
             sideBarProvider.setCurrentTab(7);
             Utils.updateSearchIndex(7);
-            return const NoTransitionPage(child: Buttons());
+            return const NoTransitionPage(child: Layouts());
+          },
+        ),
+        GoRoute(
+          path: '/${Routes.carousel}',
+          name: Routes.carousel,
+          parentNavigatorKey: _shellNavigatorKey,
+          pageBuilder: (context, state) {
+            sideBarProvider.setCurrentTab(8);
+            Utils.updateSearchIndex(8);
+            return const NoTransitionPage(child: Carousel());
           },
         ),
       ],
