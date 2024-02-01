@@ -1,17 +1,17 @@
 import 'package:fluttersnips/shared/exports.dart';
 
 class SearchProvider extends GetxController {
-  Rx<String> query = ''.obs;
-  var searchIndex = [].obs;
-  var filteredIndex = [].obs;
+  RxString query = ''.obs; 
+  RxList<Map<String, dynamic>> searchIndex = <Map<String, dynamic>>[].obs;
+  RxList<Map<String, dynamic>> filteredIndex = <Map<String, dynamic>>[].obs;
 
   void search() {
-    late List results;
+    List<Map<String, dynamic>> results;
 
-    if (query.isNotEmpty) {
+    if (query.value.isNotEmpty) {
       results = searchIndex.where((item) {
-        final itemName = item.title.toLowerCase();
-        return itemName.contains(query.toLowerCase());
+        final itemName = (item['title'] as String).toLowerCase();
+        return itemName.contains(query.value.toLowerCase());
       }).toList();
 
       updateSearchIndex(results);
@@ -20,14 +20,14 @@ class SearchProvider extends GetxController {
     }
   }
 
-  void setSearchIndex(List data) {
+  void setSearchIndex(List<Map<String, dynamic>> data) {
     searchIndex.clear();
     filteredIndex.clear();
     searchIndex.addAll(data);
     filteredIndex.addAll(data);
   }
 
-  void updateSearchIndex(List data) {
+  void updateSearchIndex(List<Map<String, dynamic>> data) {
     filteredIndex.clear();
     filteredIndex.addAll(data);
   }
