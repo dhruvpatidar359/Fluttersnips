@@ -44,39 +44,37 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyASFN5ICc-5dnpiaMjlDA7tbdCnmKTPRUk',
-    appId: '1:1032616268679:web:16c80548406fbf803db922',
-    messagingSenderId: '1032616268679',
-    projectId: 'flusnip',
-    authDomain: 'flusnip.firebaseapp.com',
-    storageBucket: 'flusnip.appspot.com',
+    apiKey: 'AIzaSyDLh6oCjHHrlZWl0NaYdJNGAVYyp4y_oYc',
+    appId: '1:1070671776693:web:bf0d7e31982da2e5dde7fc',
+    messagingSenderId: '1070671776693',
+    projectId: 'fluttersnips-1fbad',
+    authDomain: 'fluttersnips-1fbad.firebaseapp.com',
+    storageBucket: 'fluttersnips-1fbad.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCAKetGZ4I-bfdEsS_GwLgT2Xigucn3T9E',
-    appId: '1:1032616268679:android:6d901c1a5f72b7563db922',
-    messagingSenderId: '1032616268679',
-    projectId: 'flusnip',
-    storageBucket: 'flusnip.appspot.com',
+    apiKey: 'AIzaSyDuh8WJfe1GV3pN4gRRM62FjMyYFqyJOuU',
+    appId: '1:1070671776693:android:55151aa432a25ce8dde7fc',
+    messagingSenderId: '1070671776693',
+    projectId: 'fluttersnips-1fbad',
+    storageBucket: 'fluttersnips-1fbad.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDtwlvIpAn7x6EGlBPNe3ybEIXU7ni6rWk',
-    appId: '1:1032616268679:ios:58b73cb729d153a43db922',
-    messagingSenderId: '1032616268679',
-    projectId: 'flusnip',
-    storageBucket: 'flusnip.appspot.com',
-    iosClientId: '1032616268679-bu6cftvsjkb6cluff96p4l9q9iqovnqi.apps.googleusercontent.com',
+    apiKey: 'AIzaSyDc-FeDbKltE-byvGObY7SAc8FLgafz_9g',
+    appId: '1:1070671776693:ios:190653f0c5fb0c1adde7fc',
+    messagingSenderId: '1070671776693',
+    projectId: 'fluttersnips-1fbad',
+    storageBucket: 'fluttersnips-1fbad.appspot.com',
     iosBundleId: 'com.example.fluttersnips',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDtwlvIpAn7x6EGlBPNe3ybEIXU7ni6rWk',
-    appId: '1:1032616268679:ios:60d3348ee5d4dde23db922',
-    messagingSenderId: '1032616268679',
-    projectId: 'flusnip',
-    storageBucket: 'flusnip.appspot.com',
-    iosClientId: '1032616268679-ie3269pqcqi2pj2dauc9l5d411ipo75f.apps.googleusercontent.com',
+    apiKey: 'AIzaSyDc-FeDbKltE-byvGObY7SAc8FLgafz_9g',
+    appId: '1:1070671776693:ios:992fff8ec0db73d3dde7fc',
+    messagingSenderId: '1070671776693',
+    projectId: 'fluttersnips-1fbad',
+    storageBucket: 'fluttersnips-1fbad.appspot.com',
     iosBundleId: 'com.example.fluttersnips.RunnerTests',
   );
 }
